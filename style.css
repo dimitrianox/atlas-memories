@@ -1,7 +1,10 @@
+@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;600&display=swap');
+
 *{
     margin:0;
     padding:0;
     box-sizing:border-box;
+    -webkit-tap-highlight-color:transparent;
 }
 
 html,body{
@@ -9,64 +12,111 @@ html,body{
     height:100%;
     overflow:hidden;
     background:#000;
-    font-family:Arial,sans-serif;
+    font-family:'Manrope',sans-serif;
+}
+
+body{
+    color:#fff;
 }
 
 #app{
     width:100%;
-    height:100%;
+    height:100vh;
 }
 
 #cover{
     position:relative;
     width:100%;
-    height:100vh;
+    height:100%;
+    overflow:hidden;
+    background:#000;
 }
 
 #cover-image{
+    position:absolute;
+    inset:0;
 
     width:100%;
     height:100%;
-    object-fit:cover;
 
+    object-fit:cover;
+    object-position:center center;
+
+    filter:
+        brightness(.72)
+        contrast(1.08)
+        saturate(.92);
+
+    transform:scale(1.03);
 }
 
 #overlay{
 
     position:absolute;
-
     inset:0;
 
     display:flex;
-
     flex-direction:column;
-
     justify-content:flex-end;
 
-    padding:50px;
+    padding:
+        0
+        28px
+        calc(env(safe-area-inset-bottom,0px) + 52px)
+        28px;
 
-    background:linear-gradient(to top,
-    rgba(0,0,0,.70),
-    rgba(0,0,0,0));
-
+    background:
+    linear-gradient(
+        to top,
+        rgba(0,0,0,.82) 0%,
+        rgba(0,0,0,.35) 40%,
+        rgba(0,0,0,.08) 65%,
+        rgba(0,0,0,0) 100%
+    );
 }
 
 h1{
 
-    color:white;
-
-    font-size:52px;
+    font-size:clamp(40px,9vw,62px);
 
     font-weight:300;
+
+    letter-spacing:-1px;
+
+    line-height:1;
+
+    margin-bottom:8px;
+
+    text-shadow:0 2px 18px rgba(0,0,0,.35);
 
 }
 
 p{
 
-    color:white;
+    font-size:17px;
 
-    font-size:22px;
+    font-weight:400;
 
-    opacity:.8;
+    letter-spacing:3px;
+
+    text-transform:uppercase;
+
+    color:rgba(255,255,255,.75);
+
+}
+
+#overlay::after{
+
+    content:"";
+
+    width:58px;
+
+    height:2px;
+
+    margin-top:28px;
+
+    background:rgba(255,255,255,.55);
+
+    border-radius:50px;
 
 }
