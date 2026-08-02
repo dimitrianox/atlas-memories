@@ -1,0 +1,72 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html,body{
+    width:100%;
+    height:100%;
+    overflow:hidden;
+    background:#000;
+    font-family:Arial,sans-serif;
+}
+
+#app{
+    width:100%;
+    height:100%;
+}
+
+#cover{
+    position:relative;
+    width:100%;
+    height:100vh;
+}
+
+#cover-image{
+
+    width:100%;
+    height:100%;
+    object-fit:cover;
+
+}
+
+#overlay{
+
+    position:absolute;
+
+    inset:0;
+
+    display:flex;
+
+    flex-direction:column;
+
+    justify-content:flex-end;
+
+    padding:50px;
+
+    background:linear-gradient(to top,
+    rgba(0,0,0,.70),
+    rgba(0,0,0,0));
+
+}
+
+h1{
+
+    color:white;
+
+    font-size:52px;
+
+    font-weight:300;
+
+}
+
+p{
+
+    color:white;
+
+    font-size:22px;
+
+    opacity:.8;
+
+}

@@ -1,2 +1,5 @@
-# atlas-memories
-Proyecto de recuerdos interactivos mediante NF
+# Atlas Memories
+
+Proyecto de recuerdos interactivos mediante NFC.
+
+Estado: Desarrollo.
