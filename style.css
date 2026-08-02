@@ -128,3 +128,63 @@ p{
     border-radius:50px;
 
 }
+
+/* Animaciones */
+
+#cover-image{
+    animation: fotoEntrada 700ms ease-out;
+}
+
+#overlay h1{
+    opacity:0;
+    transform:translateY(25px);
+    animation:tituloEntrada .7s ease forwards;
+    animation-delay:.35s;
+}
+
+#overlay p{
+    opacity:0;
+    transform:translateY(20px);
+    animation:subtituloEntrada .7s ease forwards;
+    animation-delay:.55s;
+}
+
+@keyframes fotoEntrada{
+
+    from{
+
+        opacity:0;
+        transform:scale(1.08);
+
+    }
+
+    to{
+
+        opacity:1;
+        transform:scale(1.03);
+
+    }
+
+}
+
+@keyframes tituloEntrada{
+
+    to{
+
+        opacity:1;
+        transform:translateY(0);
+
+    }
+
+}
+
+@keyframes subtituloEntrada{
+
+    to{
+
+        opacity:1;
+        transform:translateY(0);
+
+    }
+
+}
