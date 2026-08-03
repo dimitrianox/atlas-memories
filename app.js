@@ -1,352 +1,384 @@
-// ==========================================================
-// ATLAS MEMORIES
-// Motor v3
-// ==========================================================
+"use strict";
 
-const DEFAULT_ALBUM = "londres-2025";
+//==========================================================
+// ATLAS MEMORIES
+//==========================================================
 
 const Atlas = {
 
-    albumId: "",
+    config:{
 
-    album: null,
+        defaultAlbum:"londres-2025",
 
-    metadata: {},
+        animation:500
 
-    pages: [],
+    },
 
-    current: 0,
+    state:{
 
-    busy: false
+        current:0,
+
+        target:0,
+
+        busy:false,
+
+        opened:false
+
+    },
+
+    data:{
+
+        album:null,
+
+        metadata:{},
+
+        pages:[]
+
+    },
+
+    ui:{},
+
+    cache:{},
+
+    touch:{
+
+        startX:0,
+
+        startY:0,
+
+        currentX:0,
+
+        moving:false
+
+    }
 
 };
+
+//==========================================================
 
 document.addEventListener(
 
     "DOMContentLoaded",
 
-    iniciar
+    inicializar
 
 );
 
-// ==========================================================
+//==========================================================
+
+async function inicializar()
+{
+
+    capturarUI();
+
+    registrarEventos();
+
+    await iniciar();
+
+}
+
+//==========================================================
+
+function capturarUI()
+{
+
+    Atlas.ui.app=document.getElementById("app");
+
+    Atlas.ui.book=document.getElementById("book");
+
+    Atlas.ui.page=document.getElementById("page");
+
+    Atlas.ui.media=document.getElementById("media");
+
+    Atlas.ui.primary=document.getElementById("primaryImage");
+
+    Atlas.ui.secondary=document.getElementById("secondaryImage");
+
+    Atlas.ui.video=document.getElementById("video");
+
+    Atlas.ui.overlay=document.getElementById("overlay");
+
+    Atlas.ui.title=document.getElementById("title");
+
+    Atlas.ui.location=document.getElementById("location");
+
+    Atlas.ui.date=document.getElementById("date");
+
+    Atlas.ui.fade=document.getElementById("fade");
+
+}
+
+//==========================================================
 // INICIO
-// ==========================================================
+//==========================================================
 
 async function iniciar()
 {
 
-    Atlas.albumId = obtenerAlbum();
+    const albumId=obtenerAlbum();
 
-    await cargarAlbum();
+    await cargarAlbum(albumId);
 
-    prepararPaginas();
+    await cargarMetadata(albumId);
 
-    construirLibro();
+    construirPaginas();
 
     mostrarPagina(0);
 
-    registrarEventos();
+    abrirLibro();
 
 }
 
-// ==========================================================
-// OBTENER ÁLBUM
-// ==========================================================
+//==========================================================
 
 function obtenerAlbum()
 {
 
-    const params = new URLSearchParams(
+    const params=new URLSearchParams(
 
-        location.search
+        window.location.search
 
     );
 
-    return params.get("album")
+    return(
 
-        || DEFAULT_ALBUM;
+        params.get("album")
+
+        ||
+
+        Atlas.config.defaultAlbum
+
+    );
 
 }
 
-// ==========================================================
-// CARGAR DATOS
-// ==========================================================
+//==========================================================
 
-async function cargarAlbum()
+async function cargarAlbum(albumId)
 {
 
-    const respuesta = await fetch(
+    const response=await fetch(
 
-        `albums/${Atlas.albumId}/album.json`
+        `albums/${albumId}/album.json`
 
     );
 
-    Atlas.album = await respuesta.json();
+    Atlas.data.album=
+
+        await response.json();
+
+    Atlas.data.albumId=albumId;
+
+}
+
+//==========================================================
+
+async function cargarMetadata(albumId)
+{
 
     try
     {
 
-        const extra = await fetch(
+        const response=await fetch(
 
-            `albums/${Atlas.albumId}/metadata.json`
+            `albums/${albumId}/metadata.json`
 
         );
 
-        Atlas.metadata = await extra.json();
+        Atlas.data.metadata=
+
+            await response.json();
 
     }
 
     catch
     {
 
-        Atlas.metadata = {};
+        Atlas.data.metadata={};
 
     }
 
 }
 
-// ==========================================================
-// PREPARAR PÁGINAS
-// ==========================================================
+//==========================================================
 
-function prepararPaginas()
+function construirPaginas()
 {
 
-    Atlas.pages = [];
+    Atlas.data.pages=[];
 
-    Atlas.album.items.forEach(item => {
+    for(const item of Atlas.data.album.items)
+    {
 
-        const extra = Atlas.metadata[item.file] || {};
+        const extra=
 
-        Atlas.pages.push({
+            Atlas.data.metadata[item.file]
 
-            type: item.type,
+            ||
 
-            file: item.file,
+            {};
 
-            date: item.date,
+        Atlas.data.pages.push({
 
-            title: extra.title || "",
+            type:item.type,
 
-            location: extra.location || "",
+            file:item.file,
 
-            description: extra.description || "",
+            date:item.date,
 
-            visible: extra.visible !== false
+            title:extra.title||"",
+
+            location:extra.location||"",
+
+            description:extra.description||"",
+
+            visible:extra.visible!==false
 
         });
 
-    });
+    }
 
 }
 
-// ==========================================================
-// CONSTRUIR LIBRO
-// ==========================================================
-
-function construirLibro()
-{
-
-    const app = document.getElementById("app");
-
-    app.innerHTML = "";
-
-    const page = document.createElement("div");
-
-    page.id = "page";
-
-    const media = document.createElement("div");
-
-    media.id = "media";
-
-    const info = document.createElement("div");
-
-    info.id = "info";
-
-    const title = document.createElement("h1");
-
-    title.id = "title";
-
-    const location = document.createElement("p");
-
-    location.id = "location";
-
-    const date = document.createElement("p");
-
-    date.id = "date";
-
-    info.appendChild(title);
-
-    info.appendChild(location);
-
-    info.appendChild(date);
-
-    page.appendChild(media);
-
-    page.appendChild(info);
-
-    app.appendChild(page);
-
-}
-
-// ==========================================================
-// MOSTRAR PÁGINA
-// ==========================================================
+//==========================================================
+// PÁGINA
+//==========================================================
 
 function mostrarPagina(index)
 {
 
-    if(index < 0)
+    if(index<0)return;
+
+    if(index>=Atlas.data.pages.length)return;
+
+    Atlas.state.current=index;
+
+    const page=Atlas.data.pages[index];
+
+    actualizarOverlay(page);
+
+    if(page.type==="photo")
     {
 
-        return;
-
-    }
-
-    if(index >= Atlas.pages.length)
-    {
-
-        return;
-
-    }
-
-    Atlas.current = index;
-
-    const page = Atlas.pages[index];
-
-    const media =
-        document.getElementById("media");
-
-    const title =
-        document.getElementById("title");
-
-    const location =
-        document.getElementById("location");
-
-    const date =
-        document.getElementById("date");
-
-    media.replaceChildren();
-
-    if(page.type === "photo")
-    {
-
-        const img = new Image();
-
-        img.src =
-            `albums/${Atlas.albumId}/media/${page.file}`;
-
-        img.alt = "";
-
-        media.appendChild(img);
+        mostrarImagen(page);
 
     }
     else
     {
 
-        const video =
-            document.createElement("video");
-
-        video.src =
-            `albums/${Atlas.albumId}/media/${page.file}`;
-
-        video.playsInline = true;
-
-        video.autoplay = true;
-
-        video.controls = false;
-
-        video.loop = false;
-
-        media.appendChild(video);
+        mostrarVideo(page);
 
     }
 
-    title.textContent =
+}
+
+//==========================================================
+
+function actualizarOverlay(page)
+{
+
+    if(page.visible===false)
+    {
+
+        Atlas.ui.title.textContent="";
+
+        Atlas.ui.location.textContent="";
+
+        Atlas.ui.date.textContent="";
+
+        return;
+
+    }
+
+    Atlas.ui.title.textContent=
+
         page.title;
 
-    location.textContent =
+    Atlas.ui.location.textContent=
+
         page.location;
 
-    date.textContent =
+    Atlas.ui.date.textContent=
+
         convertirFecha(page.date);
 
 }
 
-// ==========================================================
+//==========================================================
+
+function mostrarImagen(page)
+{
+
+    Atlas.ui.video.pause();
+
+    Atlas.ui.video.style.display="none";
+
+    Atlas.ui.primary.style.display="block";
+
+    Atlas.ui.secondary.style.display="none";
+
+    Atlas.ui.primary.src=
+
+        `albums/${Atlas.data.albumId}/media/${page.file}`;
+
+}
+
+//==========================================================
+
+function mostrarVideo(page)
+{
+
+    Atlas.ui.primary.style.display="none";
+
+    Atlas.ui.secondary.style.display="none";
+
+    Atlas.ui.video.style.display="block";
+
+    Atlas.ui.video.src=
+
+        `albums/${Atlas.data.albumId}/media/${page.file}`;
+
+    Atlas.ui.video.play();
+
+}
+
+//==========================================================
 // NAVEGACIÓN
-// ==========================================================
+//==========================================================
 
-function siguientePagina()
+function cambiarPagina(direccion)
 {
 
-    if(Atlas.busy)
+    if(Atlas.state.busy)return;
+
+    const destino=
+
+        Atlas.state.current+direccion;
+
+    if(destino<0)return;
+
+    if(destino>=Atlas.data.pages.length)
     {
+
+        cerrarLibro();
 
         return;
 
     }
 
-    if(Atlas.current >= Atlas.pages.length - 1)
-    {
+    Atlas.state.busy=true;
 
-        return;
+    mostrarPagina(destino);
 
-    }
+    setTimeout(()=>{
 
-    Atlas.busy = true;
+        Atlas.state.busy=false;
 
-    mostrarPagina(
-
-        Atlas.current + 1
-
-    );
-
-    requestAnimationFrame(() => {
-
-        Atlas.busy = false;
-
-    });
+    },Atlas.config.animation);
 
 }
 
-function paginaAnterior()
-{
-
-    if(Atlas.busy)
-    {
-
-        return;
-
-    }
-
-    if(Atlas.current <= 0)
-    {
-
-        return;
-
-    }
-
-    Atlas.busy = true;
-
-    mostrarPagina(
-
-        Atlas.current - 1
-
-    );
-
-    requestAnimationFrame(() => {
-
-        Atlas.busy = false;
-
-    });
-
-}
-
-// ==========================================================
-// EVENTOS
-// ==========================================================
+//==========================================================
 
 function registrarEventos()
 {
@@ -355,22 +387,21 @@ function registrarEventos()
 
         "click",
 
-        e => {
+        e=>{
 
-            const mitad =
+            if(e.clientX>
 
-                window.innerWidth / 2;
+                window.innerWidth/2)
 
-            if(e.clientX > mitad)
             {
 
-                siguientePagina();
+                cambiarPagina(1);
 
             }
             else
             {
 
-                paginaAnterior();
+                cambiarPagina(-1);
 
             }
 
@@ -380,21 +411,38 @@ function registrarEventos()
 
 }
 
-// ==========================================================
-// FECHA
-// ==========================================================
+//==========================================================
+
+function abrirLibro()
+{
+
+    requestAnimationFrame(()=>{
+
+        document.body.classList.add("ready");
+
+        Atlas.state.opened=true;
+
+    });
+
+}
+
+//==========================================================
+
+function cerrarLibro()
+{
+
+    document.body.classList.remove("ready");
+
+}
+
+//==========================================================
 
 function convertirFecha(fecha)
 {
 
-    if(!fecha)
-    {
+    if(!fecha)return"";
 
-        return "";
-
-    }
-
-    const meses = [
+    const meses=[
 
         "ENERO",
         "FEBRERO",
@@ -411,18 +459,10 @@ function convertirFecha(fecha)
 
     ];
 
-    const partes =
+    const p=fecha.split(":");
 
-        fecha.split(":");
+    if(p.length<2)return fecha;
 
-    if(partes.length < 2)
-    {
-
-        return fecha;
-
-    }
-
-    return `${meses[parseInt(partes[1])-1]} · ${partes[0]}`;
+    return`${meses[parseInt(p[1])-1]} · ${p[0]}`;
 
 }
-

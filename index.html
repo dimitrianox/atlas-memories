@@ -39,11 +39,27 @@
 
         <section id="book">
 
-            <!-- Página visible -->
-
             <article id="page">
 
-                <div id="media"></div>
+                <div id="media">
+
+                    <img
+                        id="primaryImage"
+                        draggable="false"
+                        alt="">
+
+                    <img
+                        id="secondaryImage"
+                        draggable="false"
+                        alt="">
+
+                    <video
+                        id="video"
+                        playsinline
+                        preload="metadata">
+                    </video>
+
+                </div>
 
                 <div id="overlay">
 
@@ -56,12 +72,6 @@
                 </div>
 
             </article>
-
-            <!-- Precarga de la siguiente imagen -->
-
-            <div id="preload" hidden></div>
-
-            <!-- Fade de apertura y cierre -->
 
             <div id="fade"></div>
 
