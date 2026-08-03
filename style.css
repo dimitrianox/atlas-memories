@@ -1,5 +1,9 @@
 @import url('https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;600&display=swap');
 
+/* ===========================================================
+   RESET
+=========================================================== */
+
 *{
     margin:0;
     padding:0;
@@ -16,69 +20,55 @@ body{
     overflow:hidden;
 
     background:#000;
+
     color:#fff;
 
     font-family:"Manrope",sans-serif;
 
 }
 
-body{
+img,
+video{
 
-    position:relative;
+    display:block;
 
 }
+
+/* ===========================================================
+   APLICACIÓN
+=========================================================== */
 
 #app{
 
-    position:relative;
-
-    width:100%;
-    height:100%;
-
-    overflow:hidden;
-
-}
-
-/* ===========================
-   PORTADA
-=========================== */
-
-#cover{
-
-    position:absolute;
+    position:fixed;
 
     inset:0;
+
+    overflow:hidden;
 
     background:#000;
 
-    overflow:hidden;
-
-    z-index:10;
-
 }
 
-#cover-image{
+/* ===========================================================
+   LIBRO
+=========================================================== */
+
+#book{
 
     position:absolute;
 
     inset:0;
 
-    width:100%;
-    height:100%;
-
-    object-fit:cover;
-    object-position:center;
-
-    transform:scale(1.03);
-
-    filter:
-        brightness(.72)
-        contrast(1.05)
-        saturate(.95);
+    overflow:hidden;
 
 }
 
-#overlay{
+/* ===========================================================
+   PÁGINA
+=========================================================== */
+
+.page{
 
     position:absolute;
 
@@ -86,29 +76,66 @@ body{
 
     display:flex;
 
-    flex-direction:column;
+    justify-content:center;
 
-    justify-content:flex-end;
+    align-items:center;
 
-    padding:
-        0
-        28px
-        calc(env(safe-area-inset-bottom,0px) + 52px)
-        28px;
+    background:#000;
 
-    background:
-    linear-gradient(
-        to top,
-        rgba(0,0,0,.82),
-        rgba(0,0,0,.32) 45%,
-        rgba(0,0,0,0) 100%
-    );
+    overflow:hidden;
 
 }
 
-#city-name{
+/* ===========================================================
+   CONTENIDO
+=========================================================== */
 
-    font-size:clamp(42px,9vw,64px);
+.page img,
+.page video{
+
+    position:absolute;
+
+    inset:0;
+
+    width:100%;
+
+    height:100%;
+
+    object-fit:cover;
+
+}
+
+/* ===========================================================
+   INFORMACIÓN
+=========================================================== */
+
+.info{
+
+    position:absolute;
+
+    left:28px;
+
+    right:28px;
+
+    bottom:calc(env(safe-area-inset-bottom,0px) + 44px);
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:8px;
+
+    z-index:10;
+
+}
+
+/* ===========================================================
+   TÍTULO
+=========================================================== */
+
+.title{
+
+    font-size:clamp(40px,9vw,62px);
 
     font-weight:300;
 
@@ -116,203 +143,124 @@ body{
 
     letter-spacing:-1px;
 
-    margin-bottom:10px;
+    text-shadow:0 2px 16px rgba(0,0,0,.35);
 
 }
 
-#city-date{
+/* ===========================================================
+   UBICACIÓN
+=========================================================== */
+
+.location{
+
+    font-size:20px;
+
+    font-weight:400;
+
+    color:rgba(255,255,255,.90);
+
+}
+
+/* ===========================================================
+   FECHA
+=========================================================== */
+
+.date{
+
+    margin-top:4px;
 
     font-size:15px;
+
+    font-weight:400;
 
     letter-spacing:4px;
 
     text-transform:uppercase;
 
-    color:rgba(255,255,255,.70);
+    color:rgba(255,255,255,.65);
 
 }
 
-/* ===========================
-   ANIMACIONES
-=========================== */
+/* ===========================================================
+   DEGRADADO
+=========================================================== */
 
-#cover-image{
+.info::before{
 
-    animation:coverImage .9s ease-out;
+    content:"";
+
+    position:absolute;
+
+    left:-28px;
+
+    right:-28px;
+
+    bottom:-44px;
+
+    height:260px;
+
+    z-index:-1;
+
+    background:
+
+        linear-gradient(
+
+            to top,
+
+            rgba(0,0,0,.80),
+
+            rgba(0,0,0,.45),
+
+            rgba(0,0,0,0)
+
+        );
 
 }
 
-#city-name{
+/* ===========================================================
+   FADE
+=========================================================== */
 
-    opacity:0;
+.fade-in{
 
-    transform:translateY(18px);
-
-    animation:titleIn .8s cubic-bezier(.22,.61,.36,1) forwards;
-
-    animation-delay:1.2s;
+    animation:fadeIn .8s ease forwards;
 
 }
 
-#city-date{
+.fade-out{
 
-    opacity:0;
-
-    animation:dateIn .8s ease forwards;
-
-    animation-delay:2.2s;
+    animation:fadeOut .8s ease forwards;
 
 }
 
-@keyframes coverImage{
+@keyframes fadeIn{
 
     from{
 
         opacity:0;
 
-        transform:scale(1.08);
-
     }
 
     to{
 
         opacity:1;
 
-        transform:scale(1.03);
-
     }
 
 }
 
-@keyframes titleIn{
+@keyframes fadeOut{
 
-    to{
+    from{
 
         opacity:1;
 
-        transform:translateY(0);
-
     }
-
-}
-
-@keyframes dateIn{
 
     to{
 
-        opacity:.7;
+        opacity:0;
 
     }
-
-}
-
-/* ===========================
-   VISOR
-=========================== */
-
-#viewer{
-
-    position:absolute;
-
-    inset:0;
-
-    background:#000;
-
-    z-index:1;
-
-    overflow:hidden;
-
-}
-
-/* ===========================
-   GALERÍA
-=========================== */
-
-#gallery{
-
-    width:100%;
-    height:100%;
-
-    display:flex;
-
-    flex-direction:row;
-
-    overflow-x:auto;
-    overflow-y:hidden;
-
-    scroll-snap-type:x mandatory;
-
-    scroll-behavior:smooth;
-
-    -webkit-overflow-scrolling:touch;
-
-    scrollbar-width:none;
-
-}
-
-#gallery::-webkit-scrollbar{
-
-    display:none;
-
-}
-
-/* ===========================
-   SLIDES
-=========================== */
-
-.slide{
-
-    flex:0 0 100%;
-
-    width:100vw;
-    height:100vh;
-
-    position:relative;
-
-    scroll-snap-align:start;
-
-    background:#000;
-
-    overflow:hidden;
-
-}
-
-.slide img,
-.slide video{
-
-    position:absolute;
-
-    inset:0;
-
-    width:100%;
-    height:100%;
-
-    object-fit:cover;
-
-    user-select:none;
-
-    -webkit-user-drag:none;
-
-}
-
-/* ===========================
-   PORTADA ABIERTA
-=========================== */
-
-body.viewer #cover{
-
-    transform:translateY(-100%);
-
-    transition:transform .65s cubic-bezier(.22,.61,.36,1);
-
-}
-
-/* ===========================
-   UTILIDADES
-=========================== */
-
-.hidden{
-
-    display:none !important;
 
 }

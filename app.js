@@ -1,157 +1,326 @@
-const CITY = "london";
+// ==========================================================
+// ATLAS MEMORIES v2
+// ==========================================================
 
-let cityData = null;
+// ==========================================================
+// CONFIGURACIÓN
+// ==========================================================
 
-async function loadCity(){
+const DEFAULT_ALBUM = "londres-2025";
 
-    const response = await fetch(`cities/${CITY}/city.json`);
+// ==========================================================
+// VARIABLES GLOBALES
+// ==========================================================
 
-    if(!response.ok){
+let albumId = "";
+let albumData = {};
+let metadata = {};
+let pages = [];
 
-        throw new Error("No pude cargar city.json");
+let currentPage = 0;
 
-    }
+// ==========================================================
+// INICIO
+// ==========================================================
 
-    cityData = await response.json();
+window.addEventListener("load", iniciar);
+
+// ==========================================================
+// INICIAR
+// ==========================================================
+
+async function iniciar()
+{
+
+    albumId = obtenerAlbum();
+
+    await cargarAlbum();
+
+    construirPaginas();
+
+    mostrarPagina(0);
 
 }
 
-function randomCover(){
+// ==========================================================
+// OBTENER ÁLBUM
+// ==========================================================
 
-    const photos = cityData.items.filter(item => item.type === "photo");
+function obtenerAlbum()
+{
 
-    if(photos.length === 0) return;
+    const params =
+        new URLSearchParams(window.location.search);
 
-    const lastCover = localStorage.getItem("atlas-last-cover");
+    const album =
+        params.get("album");
 
-    let candidates = photos;
+    if(album)
+    {
 
-    if(lastCover && photos.length > 1){
-
-        candidates = photos.filter(photo => photo.file !== lastCover);
+        return album;
 
     }
 
-    const cover =
-        candidates[Math.floor(Math.random()*candidates.length)];
-
-    document.getElementById("cover-image").src =
-        `cities/${CITY}/media/${cover.file}`;
-
-    localStorage.setItem("atlas-last-cover",cover.file);
+    return DEFAULT_ALBUM;
 
 }
 
-function buildGallery(){
+// ==========================================================
+// CARGAR ÁLBUM
+// ==========================================================
 
-    const gallery = document.getElementById("gallery");
+async function cargarAlbum()
+{
 
-    gallery.innerHTML = "";
+    const albumResponse =
+        await fetch(`albums/${albumId}/album.json`);
 
-    cityData.items.forEach(item => {
+    albumData =
+        await albumResponse.json();
 
-        const slide = document.createElement("section");
+    try
+    {
 
-        slide.className = "slide";
+        const metadataResponse =
+            await fetch(`albums/${albumId}/metadata.json`);
 
-        if(item.type === "photo"){
+        metadata =
+            await metadataResponse.json();
 
-            const img = document.createElement("img");
+    }
+    catch
+    {
 
-            img.src =
-                `cities/${CITY}/media/${item.file}`;
+        metadata = {};
 
-            img.loading = "lazy";
+    }
 
-            img.draggable = false;
+}
 
-            slide.appendChild(img);
+// ==========================================================
+// CONSTRUIR PÁGINAS
+// ==========================================================
 
-        }
-        else{
+function construirPaginas()
+{
 
-            const video = document.createElement("video");
+    pages = [];
 
-            video.src =
-                `cities/${CITY}/media/${item.file}`;
+    albumData.items.forEach(item => {
 
-            video.preload = "metadata";
+        const extra =
+            metadata[item.file] || {};
 
-            video.controls = true;
+        pages.push({
 
-            video.playsInline = true;
+            type: item.type,
 
-            slide.appendChild(video);
+            file: item.file,
 
-        }
+            date: item.date,
 
-        gallery.appendChild(slide);
+            title:
+                extra.title || "",
+
+            location:
+                extra.location || "",
+
+            description:
+                extra.description || "",
+
+            visible:
+                extra.visible !== false
+
+        });
 
     });
 
-    console.log(
-        `Atlas: ${cityData.items.length} elementos cargados.`
-    );
-
 }
 
-function bindEvents(){
+// ==========================================================
+// MOSTRAR PÁGINA
+// ==========================================================
 
-    let startY = 0;
+function mostrarPagina(index)
+{
 
-    document.addEventListener("touchstart", e => {
+    if(index < 0)
+    {
 
-        startY = e.touches[0].clientY;
-
-    }, { passive:true });
-
-    document.addEventListener("touchend", e => {
-
-        const endY = e.changedTouches[0].clientY;
-
-        const deltaY = startY - endY;
-
-        /*
-            De momento el swipe vertical
-            SOLO abre el visor.
-
-            El carrusel horizontal lo hará
-            el navegador mediante Scroll Snap.
-        */
-
-        if(deltaY > 80){
-
-            document.body.classList.add("viewer");
-
-        }
-
-    }, { passive:true });
-
-}
-
-async function init(){
-
-    try{
-
-        await loadCity();
-
-        randomCover();
-
-        buildGallery();
-
-        bindEvents();
-
-        console.log("Atlas iniciado correctamente.");
-
-    }
-    catch(error){
-
-        console.error(error);
-
-        alert("No pude cargar la ciudad.");
+        return;
 
     }
 
+    if(index >= pages.length)
+    {
+
+        return;
+
+    }
+
+    currentPage = index;
+
+    const page = pages[index];
+
+    const app =
+        document.getElementById("app");
+
+    app.innerHTML = "";
+
+    const book =
+        document.createElement("div");
+
+    book.id = "book";
+
+    const container =
+        document.createElement("div");
+
+    container.className =
+        "page fade-in";
+
+    // ======================================================
+    // IMAGEN / VIDEO
+    // ======================================================
+
+    if(page.type === "photo")
+    {
+
+        const img =
+            document.createElement("img");
+
+        img.src =
+            `albums/${albumId}/media/${page.file}`;
+
+        img.alt =
+            page.title || page.file;
+
+        container.appendChild(img);
+
+    }
+    else
+    {
+
+        const video =
+            document.createElement("video");
+
+        video.src =
+            `albums/${albumId}/media/${page.file}`;
+
+        video.autoplay = true;
+
+        video.controls = false;
+
+        video.loop = false;
+
+        video.playsInline = true;
+
+        container.appendChild(video);
+
+    }
+
+    // ======================================================
+    // INFORMACIÓN
+    // ======================================================
+
+    if(page.visible)
+    {
+
+        const info =
+            document.createElement("div");
+
+        info.className = "info";
+
+        const title =
+            document.createElement("div");
+
+        title.className = "title";
+
+        title.textContent =
+            page.title;
+
+        const location =
+            document.createElement("div");
+
+        location.className =
+            "location";
+
+        location.textContent =
+            page.location;
+
+        const date =
+            document.createElement("div");
+
+        date.className =
+            "date";
+
+        date.textContent =
+            convertirFecha(page.date);
+
+        info.appendChild(title);
+
+        info.appendChild(location);
+
+        info.appendChild(date);
+
+        container.appendChild(info);
+
+    }
+
+    book.appendChild(container);
+
+    app.appendChild(book);
+
 }
 
-init();
+// ==========================================================
+// CONVERTIR FECHA
+// ==========================================================
+
+function convertirFecha(fecha)
+{
+
+    if(!fecha)
+    {
+
+        return "";
+
+    }
+
+    const meses = [
+
+        "ENERO",
+        "FEBRERO",
+        "MARZO",
+        "ABRIL",
+        "MAYO",
+        "JUNIO",
+        "JULIO",
+        "AGOSTO",
+        "SEPTIEMBRE",
+        "OCTUBRE",
+        "NOVIEMBRE",
+        "DICIEMBRE"
+
+    ];
+
+    const partes =
+        fecha.split(":");
+
+    if(partes.length < 2)
+    {
+
+        return fecha;
+
+    }
+
+    const año =
+        partes[0];
+
+    const mes =
+        meses[parseInt(partes[1]) - 1];
+
+    return `${mes} · ${año}`;
+
+}
+
