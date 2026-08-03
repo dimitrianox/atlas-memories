@@ -428,3 +428,58 @@ function mostrarError(error)
     `;
 
 }
+
+// ==========================================================
+// NAVEGACIÓN
+// ==========================================================
+
+document.addEventListener("click", navegarClick);
+
+function navegarClick(e)
+{
+
+    const mitad = window.innerWidth / 2;
+
+    if(e.clientX > mitad)
+    {
+
+        siguientePagina();
+
+    }
+    else
+    {
+
+        paginaAnterior();
+
+    }
+
+}
+
+function siguientePagina()
+{
+
+    if(Atlas.current >= Atlas.pages.length - 1)
+    {
+
+        return;
+
+    }
+
+    mostrarPagina(Atlas.current + 1);
+
+}
+
+function paginaAnterior()
+{
+
+    if(Atlas.current <= 0)
+    {
+
+        return;
+
+    }
+
+    mostrarPagina(Atlas.current - 1);
+
+}
+
