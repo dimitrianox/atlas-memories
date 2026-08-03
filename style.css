@@ -32,16 +32,32 @@ body{
 
 }
 
+body{
+
+    touch-action:pan-y;
+
+    overscroll-behavior:none;
+
+    user-select:none;
+
+}
+
 /* ==========================================================
    APP
 ========================================================== */
 
 #app{
 
+    position:fixed;
+
+    inset:0;
+
     width:100vw;
-    height:100dvh;
+    height:100vh;
 
     background:#000;
+
+    overflow:hidden;
 
 }
 
@@ -70,6 +86,8 @@ body{
 
     inset:0;
 
+    overflow:hidden;
+
     background:#000;
 
 }
@@ -86,32 +104,54 @@ body{
 
     background:#000;
 
+    overflow:hidden;
+
 }
 
 /* ==========================================================
-   FOTO / VIDEO
+   IMÁGENES / VIDEO
 ========================================================== */
 
-#media img,
-#media video{
+#primaryImage,
+#secondaryImage,
+#video{
 
     position:absolute;
 
-    left:0;
-    top:0;
+    inset:0;
 
     width:100%;
     height:100%;
 
-    object-fit:contain;
+    object-fit:cover;
 
     object-position:center;
 
-    display:block;
+    display:none;
+
+    background:#000;
 
     user-select:none;
 
     -webkit-user-drag:none;
+
+}
+
+#primaryImage{
+
+    z-index:1;
+
+}
+
+#secondaryImage{
+
+    z-index:2;
+
+}
+
+#video{
+
+    z-index:3;
 
 }
 
@@ -127,12 +167,7 @@ body{
     right:0;
     bottom:0;
 
-    padding:
-
-        64px
-        28px
-        calc(env(safe-area-inset-bottom,0px) + 44px)
-        28px;
+    z-index:20;
 
     display:flex;
 
@@ -140,67 +175,51 @@ body{
 
     justify-content:flex-end;
 
-    background:
+    padding:
+        64px
+        28px
+        calc(env(safe-area-inset-bottom,0px) + 40px)
+        28px;
 
-        linear-gradient(
-
-            to top,
-
-            rgba(0,0,0,.82) 0%,
-
-            rgba(0,0,0,.45) 35%,
-
-            rgba(0,0,0,.15) 65%,
-
-            rgba(0,0,0,0) 100%
-
-        );
+    background:linear-gradient(
+        to top,
+        rgba(0,0,0,.82) 0%,
+        rgba(0,0,0,.45) 35%,
+        rgba(0,0,0,.15) 65%,
+        rgba(0,0,0,0) 100%
+    );
 
     pointer-events:none;
 
 }
 
 /* ==========================================================
-   TÍTULO
+   TÍTULOS
 ========================================================== */
 
 #title{
 
-    font-size:clamp(38px,8vw,60px);
+    font-size:clamp(36px,8vw,58px);
 
     font-weight:300;
 
     line-height:1;
 
-    letter-spacing:-1px;
+    margin-bottom:12px;
 
-    margin-bottom:10px;
-
-    text-shadow:
-
-        0 2px 16px rgba(0,0,0,.45);
+    text-shadow:0 2px 16px rgba(0,0,0,.45);
 
 }
-
-/* ==========================================================
-   UBICACIÓN
-========================================================== */
 
 #location{
 
     font-size:18px;
 
-    font-weight:400;
+    margin-bottom:8px;
 
     opacity:.90;
 
-    margin-bottom:8px;
-
 }
-
-/* ==========================================================
-   FECHA
-========================================================== */
 
 #date{
 
@@ -214,19 +233,11 @@ body{
 
 }
 
-/* ==========================================================
-   PRELOAD
-========================================================== */
+#title:empty,
+#location:empty,
+#date:empty{
 
-#preload{
-
-    position:absolute;
-
-    inset:0;
-
-    visibility:hidden;
-
-    pointer-events:none;
+    display:none;
 
 }
 
@@ -240,15 +251,15 @@ body{
 
     inset:0;
 
+    z-index:100;
+
     background:#000;
 
     opacity:1;
 
     pointer-events:none;
 
-    transition:opacity .65s ease;
-
-    z-index:999;
+    transition:opacity .45s ease;
 
 }
 
@@ -262,81 +273,11 @@ body.ready #fade{
    TRANSICIONES
 ========================================================== */
 
-#page{
-
-    opacity:1;
-
-    transform:translateX(0);
+#primaryImage,
+#secondaryImage{
 
     transition:
-
-        opacity .30s ease,
-
-        transform .30s ease;
-
-}
-
-#page.next{
-
-    transform:translateX(-32px);
-
-    opacity:0;
-
-}
-
-#page.prev{
-
-    transform:translateX(32px);
-
-    opacity:0;
-
-}
-
-/* ==========================================================
-   RENDIMIENTO
-========================================================== */
-
-
-/* ==========================================================
-   TEXTO VACÍO
-========================================================== */
-
-#title:empty,
-#location:empty,
-#date:empty{
-
-    display:none;
-
-}
-
-/* ==========================================================
-   INTERACCIÓN
-========================================================== */
-
-body{
-
-    touch-action:pan-y;
-
-    overscroll-behavior:none;
-
-    cursor:default;
-
-    user-select:none;
-
-}
-
-/* ==========================================================
-   MEDIA
-========================================================== */
-
-img,
-video{
-
-    display:block;
-
-    max-width:none;
-
-    border:0;
+        opacity .25s ease;
 
 }
 
@@ -365,3 +306,4 @@ video{
 /* ==========================================================
    FIN
 ========================================================== */
+
