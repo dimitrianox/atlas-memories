@@ -10,14 +10,29 @@ async function iniciar() {
 
     console.log(datos);
 
-    const portada = datos.items.find(i => i.type === "photo");
+    const fotos = datos.items.filter(i => i.type === "photo");
 
-    if(portada){
+let ultimaPortada = localStorage.getItem("ultimaPortada");
 
-        document.getElementById("cover-image").src =
-            `cities/${CITY}/media/${portada.file}`;
+let disponibles = fotos;
 
-    }
+if (fotos.length > 1 && ultimaPortada) {
+
+    disponibles = fotos.filter(f => f.file !== ultimaPortada);
+
+}
+
+const portada =
+    disponibles[Math.floor(Math.random() * disponibles.length)];
+
+if (portada) {
+
+    document.getElementById("cover-image").src =
+        `cities/${CITY}/media/${portada.file}`;
+
+    localStorage.setItem("ultimaPortada", portada.file);
+
+}
 
 }
 
