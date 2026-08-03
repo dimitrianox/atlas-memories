@@ -13,58 +13,81 @@ body{
     width:100%;
     height:100%;
 
-    margin:0;
-    padding:0;
-
-    background:#000 !important;
-
-    color-scheme:dark;
-
     overflow:hidden;
 
-}
-body{
+    background:#000;
     color:#fff;
+
+    font-family:"Manrope",sans-serif;
+
+}
+
+body{
+
+    position:relative;
+
 }
 
 #app{
-    width:100%;
-    height:100vh;
-}
 
-#cover{
     position:relative;
+
     width:100%;
     height:100%;
+
     overflow:hidden;
+
+}
+
+/* ===========================
+   PORTADA
+=========================== */
+
+#cover{
+
+    position:absolute;
+
+    inset:0;
+
     background:#000;
+
+    overflow:hidden;
+
+    z-index:10;
+
 }
 
 #cover-image{
+
     position:absolute;
+
     inset:0;
 
     width:100%;
     height:100%;
 
     object-fit:cover;
-    object-position:center top;
+    object-position:center;
+
+    transform:scale(1.03);
 
     filter:
         brightness(.72)
-        contrast(1.08)
-        saturate(.92);
+        contrast(1.05)
+        saturate(.95);
 
-    transform:scale(1.03);
 }
 
 #overlay{
 
     position:absolute;
+
     inset:0;
 
     display:flex;
+
     flex-direction:column;
+
     justify-content:flex-end;
 
     padding:
@@ -76,56 +99,36 @@ body{
     background:
     linear-gradient(
         to top,
-        rgba(0,0,0,.82) 0%,
-        rgba(0,0,0,.35) 40%,
-        rgba(0,0,0,.08) 65%,
+        rgba(0,0,0,.82),
+        rgba(0,0,0,.32) 45%,
         rgba(0,0,0,0) 100%
     );
+
 }
 
-h1{
+#city-name{
 
-    font-size:clamp(40px,9vw,62px);
+    font-size:clamp(42px,9vw,64px);
 
     font-weight:300;
 
-    letter-spacing:-1px;
-
     line-height:1;
 
-    margin-bottom:8px;
+    letter-spacing:-1px;
 
-    text-shadow:0 2px 18px rgba(0,0,0,.35);
+    margin-bottom:10px;
 
 }
 
-p{
+#city-date{
 
-    font-size:17px;
+    font-size:15px;
 
-    font-weight:400;
-
-    letter-spacing:3px;
+    letter-spacing:4px;
 
     text-transform:uppercase;
 
-    color:rgba(255,255,255,.75);
-
-}
-
-#overlay::after{
-
-    content:"";
-
-    width:58px;
-
-    height:2px;
-
-    margin-top:28px;
-
-    background:rgba(255,255,255,.55);
-
-    border-radius:50px;
+    color:rgba(255,255,255,.70);
 
 }
 
@@ -134,42 +137,39 @@ p{
 =========================== */
 
 #cover-image{
-    animation: fotoEntrada 900ms ease-out;
+
+    animation:coverImage .9s ease-out;
+
 }
 
-#overlay h1{
+#city-name{
 
     opacity:0;
+
     transform:translateY(18px);
 
-    animation:
-        tituloEntrada .8s cubic-bezier(.22,.61,.36,1) forwards;
+    animation:titleIn .8s cubic-bezier(.22,.61,.36,1) forwards;
 
     animation-delay:1.2s;
 
 }
 
-#overlay p{
-
-    font-size:15px;
-    letter-spacing:4px;
-    text-transform:uppercase;
-    font-weight:400;
-
-    color:#ffffff;
+#city-date{
 
     opacity:0;
 
-    animation:fechaEntrada 1s ease forwards;
-    animation-delay:2.3s;
+    animation:dateIn .8s ease forwards;
+
+    animation-delay:2.2s;
 
 }
 
-@keyframes fotoEntrada{
+@keyframes coverImage{
 
     from{
 
         opacity:0;
+
         transform:scale(1.08);
 
     }
@@ -177,123 +177,142 @@ p{
     to{
 
         opacity:1;
+
         transform:scale(1.03);
 
     }
 
 }
 
-@keyframes tituloEntrada{
-
-    from{
-
-        opacity:0;
-        transform:translateY(18px);
-
-    }
+@keyframes titleIn{
 
     to{
 
         opacity:1;
+
         transform:translateY(0);
 
     }
 
 }
 
-@keyframes fechaEntrada{
-
-    from{
-        opacity:0;
-    }
+@keyframes dateIn{
 
     to{
-        opacity:.60;
+
+        opacity:.7;
+
     }
 
 }
 
+/* ===========================
+   VISOR
+=========================== */
 
-body.open #cover{
+#viewer{
 
-    transform:translateY(-100%);
+    position:absolute;
 
-    transition:transform .7s cubic-bezier(.22,.61,.36,1);
+    inset:0;
+
+    background:#000;
+
+    z-index:1;
+
+    overflow:hidden;
 
 }
 
-
+/* ===========================
+   GALERÍA
+=========================== */
 
 #gallery{
 
-    position:absolute;
-    top:0;
-    left:0;
-
     width:100%;
     height:100%;
 
-    background:#000;
+    display:flex;
 
-    transform:translateY(100%);
+    flex-direction:row;
 
-    overflow-y:auto;
+    overflow-x:auto;
+    overflow-y:hidden;
 
-    scroll-snap-type:y mandatory;
+    scroll-snap-type:x mandatory;
 
-    transition:transform .7s cubic-bezier(.22,.61,.36,1);
+    scroll-behavior:smooth;
+
+    -webkit-overflow-scrolling:touch;
+
+    scrollbar-width:none;
 
 }
 
+#gallery::-webkit-scrollbar{
+
+    display:none;
+
+}
+
+/* ===========================
+   SLIDES
+=========================== */
+
 .slide{
+
+    flex:0 0 100%;
 
     width:100vw;
     height:100vh;
 
-    background:#000;
-
-}
-
-.slide img,
-.slide video{
-
-    width:100%;
-    height:100%;
-
-    object-fit:cover;
-
-}
-
-.slide{
-
-    width:100vw;
-    height:100vh;
+    position:relative;
 
     scroll-snap-align:start;
 
     background:#000;
 
+    overflow:hidden;
+
 }
 
 .slide img,
 .slide video{
+
+    position:absolute;
+
+    inset:0;
 
     width:100%;
     height:100%;
 
     object-fit:cover;
 
-}
+    user-select:none;
 
-body.open #cover{
-
-    transform:translateY(-100%);
-    transition:transform .7s cubic-bezier(.22,.61,.36,1);
+    -webkit-user-drag:none;
 
 }
 
-body.open #gallery{
+/* ===========================
+   PORTADA ABIERTA
+=========================== */
+
+body.viewer #cover{
 
     transform:translateY(-100%);
+
+    transition:transform .65s cubic-bezier(.22,.61,.36,1);
+
+}
+
+/* ===========================
+   UTILIDADES
+=========================== */
+
+.hidden{
+
+    display:none !important;
 
 }

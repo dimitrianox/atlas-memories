@@ -1,41 +1,73 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
+
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+
     <title>Atlas Memories</title>
+
+    <meta name="theme-color" content="#000000">
+    <meta name="color-scheme" content="dark">
+
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style"
+          content="black-translucent">
 
     <link rel="stylesheet" href="style.css">
 
-<meta name="theme-color" content="#000000">
-<meta name="color-scheme" content="dark">
-<meta name="apple-mobile-web-app-capable" content="yes">
-<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 </head>
+
 <body>
 
     <main id="app">
 
+        <!-- ==========================
+             PORTADA
+        =========================== -->
+
         <section id="cover">
 
-           <img id="cover-image"
-     src=""
-     alt="Londres">
+            <img
+                id="cover-image"
+                src=""
+                alt="Portada">
 
             <div id="overlay">
 
-                <h1>Londres</h1>
+                <h1 id="city-name">
+                    Londres
+                </h1>
 
-                <p>MAYO · 2025</p>
+                <p id="city-date">
+                    MAYO · 2025
+                </p>
 
             </div>
 
         </section>
 
-<section id="gallery"></section>
+        <!-- ==========================
+             RECORRIDO
+        =========================== -->
+
+        <section id="viewer">
+
+            <div id="gallery">
+
+                <!-- app.js insertará aquí todas las fotos y videos -->
+
+            </div>
+
+        </section>
+
     </main>
 
-<script src="app.js"></script>
+    <script src="app.js"></script>
 
 </body>
+
 </html>

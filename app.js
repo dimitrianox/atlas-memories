@@ -1,101 +1,157 @@
-let startY = 0;
-
 const CITY = "london";
 
-async function iniciar() {
+let cityData = null;
 
-    const respuesta = await fetch(`cities/${CITY}/city.json`);
+async function loadCity(){
 
-    const datos = await respuesta.json();
+    const response = await fetch(`cities/${CITY}/city.json`);
 
-    console.log(datos);
+    if(!response.ok){
 
-    const fotos = datos.items.filter(i => i.type === "photo");
-
-let ultimaPortada = localStorage.getItem("ultimaPortada");
-
-let disponibles = fotos;
-
-if (fotos.length > 1 && ultimaPortada) {
-
-    disponibles = fotos.filter(f => f.file !== ultimaPortada);
-
-}
-
-const portada =
-    disponibles[Math.floor(Math.random() * disponibles.length)];
-
-if (portada) {
-
-    document.getElementById("cover-image").src =
-        `cities/${CITY}/media/${portada.file}`;
-
-    localStorage.setItem("ultimaPortada", portada.file);
-
-}
-
-const gallery = document.getElementById("gallery");
-
-datos.items.forEach(item => {
-
-    const slide = document.createElement("section");
-
-    slide.className = "slide";
-
-    if (item.type === "photo") {
-
-        const img = document.createElement("img");
-
-        img.src = `cities/${CITY}/media/${item.file}`;
-
-        slide.appendChild(img);
-
-    } else {
-
-        const video = document.createElement("video");
-
-        video.src = `cities/${CITY}/media/${item.file}`;
-
-        video.preload = "metadata";
-
-        video.controls = true;
-
-        slide.appendChild(video);
+        throw new Error("No pude cargar city.json");
 
     }
 
-    gallery.appendChild(slide);
-
-});
+    cityData = await response.json();
 
 }
 
-iniciar();
+function randomCover(){
 
-document.addEventListener("touchstart", e=>{
+    const photos = cityData.items.filter(item => item.type === "photo");
 
-    startY = e.touches[0].clientY;
+    if(photos.length === 0) return;
 
-});
+    const lastCover = localStorage.getItem("atlas-last-cover");
 
-document.addEventListener("touchend", e=>{
+    let candidates = photos;
 
-    const endY = e.changedTouches[0].clientY;
+    if(lastCover && photos.length > 1){
 
-    const diff = startY - endY;
+        candidates = photos.filter(photo => photo.file !== lastCover);
 
-if(diff > 80){
+    }
 
-    document.body.classList.add("open");
+    const cover =
+        candidates[Math.floor(Math.random()*candidates.length)];
 
-    setTimeout(() => {
+    document.getElementById("cover-image").src =
+        `cities/${CITY}/media/${cover.file}`;
 
-        const gallery = document.getElementById("gallery");
-
-        gallery.scrollTop = 0;
-
-    },700);
+    localStorage.setItem("atlas-last-cover",cover.file);
 
 }
 
-});
+function buildGallery(){
+
+    const gallery = document.getElementById("gallery");
+
+    gallery.innerHTML = "";
+
+    cityData.items.forEach(item => {
+
+        const slide = document.createElement("section");
+
+        slide.className = "slide";
+
+        if(item.type === "photo"){
+
+            const img = document.createElement("img");
+
+            img.src =
+                `cities/${CITY}/media/${item.file}`;
+
+            img.loading = "lazy";
+
+            img.draggable = false;
+
+            slide.appendChild(img);
+
+        }
+        else{
+
+            const video = document.createElement("video");
+
+            video.src =
+                `cities/${CITY}/media/${item.file}`;
+
+            video.preload = "metadata";
+
+            video.controls = true;
+
+            video.playsInline = true;
+
+            slide.appendChild(video);
+
+        }
+
+        gallery.appendChild(slide);
+
+    });
+
+    console.log(
+        `Atlas: ${cityData.items.length} elementos cargados.`
+    );
+
+}
+
+function bindEvents(){
+
+    let startY = 0;
+
+    document.addEventListener("touchstart", e => {
+
+        startY = e.touches[0].clientY;
+
+    }, { passive:true });
+
+    document.addEventListener("touchend", e => {
+
+        const endY = e.changedTouches[0].clientY;
+
+        const deltaY = startY - endY;
+
+        /*
+            De momento el swipe vertical
+            SOLO abre el visor.
+
+            El carrusel horizontal lo hará
+            el navegador mediante Scroll Snap.
+        */
+
+        if(deltaY > 80){
+
+            document.body.classList.add("viewer");
+
+        }
+
+    }, { passive:true });
+
+}
+
+async function init(){
+
+    try{
+
+        await loadCity();
+
+        randomCover();
+
+        buildGallery();
+
+        bindEvents();
+
+        console.log("Atlas iniciado correctamente.");
+
+    }
+    catch(error){
+
+        console.error(error);
+
+        alert("No pude cargar la ciudad.");
+
+    }
+
+}
+
+init();
