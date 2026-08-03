@@ -34,6 +34,40 @@ if (portada) {
 
 }
 
+const gallery = document.getElementById("gallery");
+
+datos.items.forEach(item => {
+
+    const slide = document.createElement("section");
+
+    slide.className = "slide";
+
+    if (item.type === "photo") {
+
+        const img = document.createElement("img");
+
+        img.src = `cities/${CITY}/media/${item.file}`;
+
+        slide.appendChild(img);
+
+    } else {
+
+        const video = document.createElement("video");
+
+        video.src = `cities/${CITY}/media/${item.file}`;
+
+        video.preload = "metadata";
+
+        video.controls = true;
+
+        slide.appendChild(video);
+
+    }
+
+    gallery.appendChild(slide);
+
+});
+
 }
 
 iniciar();
@@ -50,10 +84,18 @@ document.addEventListener("touchend", e=>{
 
     const diff = startY - endY;
 
-    if(diff>80){
+if(diff > 80){
 
-        document.body.classList.add("open");
+    document.body.classList.add("open");
 
-    }
+    setTimeout(() => {
+
+        const gallery = document.getElementById("gallery");
+
+        gallery.scrollTop = 0;
+
+    },700);
+
+}
 
 });
