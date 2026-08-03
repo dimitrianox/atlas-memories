@@ -4,13 +4,13 @@
 // ATLAS MEMORIES
 //==========================================================
 
-const Atlas = {
+const Atlas={
 
     config:{
 
         defaultAlbum:"londres-2025",
 
-        animation:500
+        animation:250
 
     },
 
@@ -18,11 +18,9 @@ const Atlas = {
 
         current:0,
 
-        target:0,
-
         busy:false,
 
-        opened:false
+        showingPrimary:true
 
     },
 
@@ -32,25 +30,13 @@ const Atlas = {
 
         metadata:{},
 
-        pages:[]
+        pages:[],
+
+        albumId:""
 
     },
 
-    ui:{},
-
-    cache:{},
-
-    touch:{
-
-        startX:0,
-
-        startY:0,
-
-        currentX:0,
-
-        moving:false
-
-    }
+    ui:{}
 
 };
 
@@ -73,7 +59,13 @@ async function inicializar()
 
     registrarEventos();
 
-    await iniciar();
+    await cargarAlbum();
+
+    construirPaginas();
+
+    mostrarPagina(0);
+
+    document.body.classList.add("ready");
 
 }
 
@@ -82,21 +74,11 @@ async function inicializar()
 function capturarUI()
 {
 
-    Atlas.ui.app=document.getElementById("app");
-
-    Atlas.ui.book=document.getElementById("book");
-
-    Atlas.ui.page=document.getElementById("page");
-
-    Atlas.ui.media=document.getElementById("media");
-
     Atlas.ui.primary=document.getElementById("primaryImage");
 
     Atlas.ui.secondary=document.getElementById("secondaryImage");
 
     Atlas.ui.video=document.getElementById("video");
-
-    Atlas.ui.overlay=document.getElementById("overlay");
 
     Atlas.ui.title=document.getElementById("title");
 
@@ -104,95 +86,48 @@ function capturarUI()
 
     Atlas.ui.date=document.getElementById("date");
 
-    Atlas.ui.fade=document.getElementById("fade");
-
-}
-
-//==========================================================
-// INICIO
-//==========================================================
-
-async function iniciar()
-{
-
-    const albumId=obtenerAlbum();
-
-    await cargarAlbum(albumId);
-
-    await cargarMetadata(albumId);
-
-    construirPaginas();
-
-    mostrarPagina(0);
-
-    abrirLibro();
-
 }
 
 //==========================================================
 
-function obtenerAlbum()
+async function cargarAlbum()
 {
 
-    const params=new URLSearchParams(
+    const params=new URLSearchParams(location.search);
 
-        window.location.search
-
-    );
-
-    return(
+    Atlas.data.albumId=
 
         params.get("album")
 
         ||
 
-        Atlas.config.defaultAlbum
+        Atlas.config.defaultAlbum;
 
-    );
+    const album=await fetch(
 
-}
-
-//==========================================================
-
-async function cargarAlbum(albumId)
-{
-
-    const response=await fetch(
-
-        `albums/${albumId}/album.json`
+        `albums/${Atlas.data.albumId}/album.json`
 
     );
 
     Atlas.data.album=
 
-        await response.json();
+        await album.json();
 
-    Atlas.data.albumId=albumId;
+    try{
 
-}
+        const meta=await fetch(
 
-//==========================================================
-
-async function cargarMetadata(albumId)
-{
-
-    try
-    {
-
-        const response=await fetch(
-
-            `albums/${albumId}/metadata.json`
+            `albums/${Atlas.data.albumId}/metadata.json`
 
         );
 
         Atlas.data.metadata=
 
-            await response.json();
+            await meta.json();
 
     }
 
-    catch
-    {
+    catch{
 
         Atlas.data.metadata={};
 
@@ -200,6 +135,8 @@ async function cargarMetadata(albumId)
 
 }
 
+//==========================================================
+// CONSTRUIR PÁGINAS
 //==========================================================
 
 function construirPaginas()
@@ -232,7 +169,9 @@ function construirPaginas()
 
             description:extra.description||"",
 
-            visible:extra.visible!==false
+            visible:extra.visible!==false,
+
+            fit:extra.fit||"cover"
 
         });
 
@@ -241,7 +180,7 @@ function construirPaginas()
 }
 
 //==========================================================
-// PÁGINA
+// MOSTRAR PÁGINA
 //==========================================================
 
 function mostrarPagina(index)
@@ -253,7 +192,9 @@ function mostrarPagina(index)
 
     Atlas.state.current=index;
 
-    const page=Atlas.data.pages[index];
+    const page=
+
+        Atlas.data.pages[index];
 
     actualizarOverlay(page);
 
@@ -273,11 +214,13 @@ function mostrarPagina(index)
 }
 
 //==========================================================
+// OVERLAY
+//==========================================================
 
 function actualizarOverlay(page)
 {
 
-    if(page.visible===false)
+    if(!page.visible)
     {
 
         Atlas.ui.title.textContent="";
@@ -305,24 +248,64 @@ function actualizarOverlay(page)
 }
 
 //==========================================================
+// IMÁGENES
+//==========================================================
 
 function mostrarImagen(page)
 {
 
     Atlas.ui.video.pause();
 
+    Atlas.ui.video.removeAttribute("src");
+
+    Atlas.ui.video.load();
+
     Atlas.ui.video.style.display="none";
 
-    Atlas.ui.primary.style.display="block";
+    const visible=
 
-    Atlas.ui.secondary.style.display="none";
+        Atlas.state.showingPrimary
 
-    Atlas.ui.primary.src=
+        ? Atlas.ui.primary
+
+        : Atlas.ui.secondary;
+
+    const oculta=
+
+        Atlas.state.showingPrimary
+
+        ? Atlas.ui.secondary
+
+        : Atlas.ui.primary;
+
+    oculta.style.objectFit=page.fit;
+
+    oculta.onload=()=>{
+
+        oculta.style.display="block";
+
+        oculta.style.opacity="1";
+
+        visible.style.opacity="0";
+
+        visible.style.display="none";
+
+        Atlas.state.showingPrimary=
+
+            !Atlas.state.showingPrimary;
+
+        oculta.onload=null;
+
+    };
+
+    oculta.src=
 
         `albums/${Atlas.data.albumId}/media/${page.file}`;
 
 }
 
+//==========================================================
+// VIDEO
 //==========================================================
 
 function mostrarVideo(page)
@@ -357,14 +340,7 @@ function cambiarPagina(direccion)
 
     if(destino<0)return;
 
-    if(destino>=Atlas.data.pages.length)
-    {
-
-        cerrarLibro();
-
-        return;
-
-    }
+    if(destino>=Atlas.data.pages.length)return;
 
     Atlas.state.busy=true;
 
@@ -378,6 +354,8 @@ function cambiarPagina(direccion)
 
 }
 
+//==========================================================
+// EVENTOS
 //==========================================================
 
 function registrarEventos()
@@ -412,35 +390,17 @@ function registrarEventos()
 }
 
 //==========================================================
-
-function abrirLibro()
-{
-
-    requestAnimationFrame(()=>{
-
-        document.body.classList.add("ready");
-
-        Atlas.state.opened=true;
-
-    });
-
-}
-
-//==========================================================
-
-function cerrarLibro()
-{
-
-    document.body.classList.remove("ready");
-
-}
-
+// FECHA
 //==========================================================
 
 function convertirFecha(fecha)
 {
 
     if(!fecha)return"";
+
+    const p=fecha.split(":");
+
+    if(p.length<2)return fecha;
 
     const meses=[
 
@@ -459,10 +419,7 @@ function convertirFecha(fecha)
 
     ];
 
-    const p=fecha.split(":");
-
-    if(p.length<2)return fecha;
-
-    return`${meses[parseInt(p[1])-1]} · ${p[0]}`;
+    return `${meses[parseInt(p[1])-1]} · ${p[0]}`;
 
 }
+
