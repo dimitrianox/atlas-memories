@@ -5,29 +5,69 @@
 
     <meta charset="UTF-8">
 
-    <meta name="viewport"
-          content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0, viewport-fit=cover">
 
     <title>Atlas Memories</title>
 
-    <meta name="theme-color" content="#000000">
+    <meta
+        name="theme-color"
+        content="#000000">
 
-    <meta name="color-scheme" content="dark">
+    <meta
+        name="color-scheme"
+        content="dark">
 
-    <meta name="apple-mobile-web-app-capable"
-          content="yes">
+    <meta
+        name="apple-mobile-web-app-capable"
+        content="yes">
 
-    <meta name="apple-mobile-web-app-status-bar-style"
-          content="black-translucent">
+    <meta
+        name="apple-mobile-web-app-status-bar-style"
+        content="black-translucent">
 
-    <link rel="stylesheet"
-          href="style.css">
+    <link
+        rel="stylesheet"
+        href="style.css">
 
 </head>
 
 <body>
 
-    <div id="app"></div>
+    <main id="app">
+
+        <section id="book">
+
+            <!-- Página visible -->
+
+            <article id="page">
+
+                <div id="media"></div>
+
+                <div id="overlay">
+
+                    <h1 id="title"></h1>
+
+                    <p id="location"></p>
+
+                    <p id="date"></p>
+
+                </div>
+
+            </article>
+
+            <!-- Precarga de la siguiente imagen -->
+
+            <div id="preload" hidden></div>
+
+            <!-- Fade de apertura y cierre -->
+
+            <div id="fade"></div>
+
+        </section>
+
+    </main>
 
     <script src="app.js"></script>
 
