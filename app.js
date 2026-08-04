@@ -423,3 +423,333 @@ function convertirFecha(fecha)
 
 }
 
+//==========================================================
+// SWIPE
+//==========================================================
+
+function activarSwipe()
+{
+
+    const zona=document.getElementById("media");
+
+    let inicioX=0;
+    let inicioY=0;
+
+    let deltaX=0;
+
+    zona.addEventListener("touchstart",touchStart,{passive:true});
+    zona.addEventListener("touchmove",touchMove,{passive:true});
+    zona.addEventListener("touchend",touchEnd,{passive:true});
+
+    function touchStart(e)
+    {
+
+        if(Atlas.state.busy)return;
+
+        const t=e.touches[0];
+
+        inicioX=t.clientX;
+        inicioY=t.clientY;
+
+        deltaX=0;
+
+    }
+
+    function touchMove(e)
+    {
+
+        if(Atlas.state.busy)return;
+
+        const t=e.touches[0];
+
+        deltaX=t.clientX-inicioX;
+
+        const img=
+
+            Atlas.state.showingPrimary
+
+            ? Atlas.ui.primary
+
+            : Atlas.ui.secondary;
+
+        img.style.transition="none";
+
+        img.style.transform=
+
+            `translateX(${deltaX}px)`;
+
+    }
+
+    function touchEnd()
+    {
+
+        if(Atlas.state.busy)return;
+
+        const img=
+
+            Atlas.state.showingPrimary
+
+            ? Atlas.ui.primary
+
+            : Atlas.ui.secondary;
+
+        img.style.transition="transform .25s ease";
+
+        img.style.transform="translateX(0)";
+
+        if(Math.abs(deltaX)>90)
+        {
+
+            cambiarPagina(
+
+                deltaX<0
+
+                ?1
+
+                :-1
+
+            );
+
+        }
+
+    }
+
+}
+
+//==========================================================
+// PRECARGA
+//==========================================================
+
+function precargarSiguiente()
+{
+
+    const siguiente=
+
+        Atlas.state.current+1;
+
+    if(siguiente>=Atlas.data.pages.length)
+    {
+
+        return;
+
+    }
+
+    const page=
+
+        Atlas.data.pages[siguiente];
+
+    if(page.type!=="photo")
+    {
+
+        return;
+
+    }
+
+    const img=new Image();
+
+    img.src=
+
+        `albums/${Atlas.data.albumId}/media/${page.file}`;
+
+}
+
+//==========================================================
+// PRECARGA ANTERIOR
+//==========================================================
+
+function precargarAnterior()
+{
+
+    const anterior=
+
+        Atlas.state.current-1;
+
+    if(anterior<0)
+    {
+
+        return;
+
+    }
+
+    const page=
+
+        Atlas.data.pages[anterior];
+
+    if(page.type!=="photo")
+    {
+
+        return;
+
+    }
+
+    const img=new Image();
+
+    img.src=
+
+        `albums/${Atlas.data.albumId}/media/${page.file}`;
+
+}
+
+//==========================================================
+// PRECARGAR ALREDEDOR
+//==========================================================
+
+function precargar()
+{
+
+    precargarAnterior();
+
+    precargarSiguiente();
+
+}
+
+//==========================================================
+// INICIAR MOTOR
+//==========================================================
+
+function iniciarMotor()
+{
+
+    activarSwipe();
+
+    precargar();
+
+}
+
+//==========================================================
+// RECARGAR MOTOR
+//==========================================================
+
+function actualizarMotor()
+{
+
+    precargar();
+
+}
+
+//==========================================================
+// ESTADO
+//==========================================================
+
+function paginaActual()
+{
+
+    return Atlas.data.pages[
+
+        Atlas.state.current
+
+    ];
+
+}
+
+function paginaSiguiente()
+{
+
+    const i=
+
+        Atlas.state.current+1;
+
+    if(i>=Atlas.data.pages.length)
+    {
+
+        return null;
+
+    }
+
+    return Atlas.data.pages[i];
+
+}
+
+function paginaAnterior()
+{
+
+    const i=
+
+        Atlas.state.current-1;
+
+    if(i<0)
+    {
+
+        return null;
+
+    }
+
+    return Atlas.data.pages[i];
+
+}
+
+//==========================================================
+// ARRANQUE DEL MOTOR
+//==========================================================
+
+window.addEventListener(
+
+    "load",
+
+    ()=>{
+
+        iniciarMotor();
+
+    }
+
+);
+
+//==========================================================
+// OBSERVAR CAMBIO DE PÁGINA
+//==========================================================
+
+const mostrarPaginaOriginal=
+
+    mostrarPagina;
+
+mostrarPagina=function(index)
+{
+
+    mostrarPaginaOriginal(index);
+
+    actualizarMotor();
+
+};
+
+//==========================================================
+// LIMPIEZA
+//==========================================================
+
+window.addEventListener(
+
+    "blur",
+
+    ()=>{
+
+        Atlas.ui.video.pause();
+
+    }
+
+);
+
+window.addEventListener(
+
+    "focus",
+
+    ()=>{
+
+        const page=
+
+            paginaActual();
+
+        if(page && page.type==="video")
+        {
+
+            Atlas.ui.video.play();
+
+        }
+
+    }
+
+);
+
+//==========================================================
+// FIN APP
+//==========================================================
+
+
