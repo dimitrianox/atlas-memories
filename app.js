@@ -1,755 +1,222 @@
 "use strict";
 
-//==========================================================
-// ATLAS MEMORIES
-//==========================================================
+/* Atlas Memories: CSS owns sizing and centering; this file owns behavior. */
+(() => {
+  const config = { defaultAlbum: "londres-2025", swipeThreshold: 72, preloadDistance: 1 };
+  const state = { albumId: "", pages: [], current: 0, primaryVisible: true, renderToken: 0, startX: 0, startY: 0, deltaX: 0, dragging: false, horizontal: false };
+  const ui = {};
 
-const Atlas={
+  document.addEventListener("DOMContentLoaded", init);
 
-    config:{
-
-        defaultAlbum:"londres-2025",
-
-        animation:250
-
-    },
-
-    state:{
-
-        current:0,
-
-        busy:false,
-
-        showingPrimary:true
-
-    },
-
-    data:{
-
-        album:null,
-
-        metadata:{},
-
-        pages:[],
-
-        albumId:""
-
-    },
-
-    ui:{}
-
-};
-
-//==========================================================
-
-document.addEventListener(
-
-    "DOMContentLoaded",
-
-    inicializar
-
-);
-
-//==========================================================
-
-async function inicializar()
-{
-
-    capturarUI();
-
-    registrarEventos();
-
-    await cargarAlbum();
-
-    construirPaginas();
-
-    mostrarPagina(0);
-
-    document.body.classList.add("ready");
-
-}
-
-//==========================================================
-
-function capturarUI()
-{
-
-    Atlas.ui.primary=document.getElementById("primaryImage");
-
-    Atlas.ui.secondary=document.getElementById("secondaryImage");
-
-    Atlas.ui.video=document.getElementById("video");
-
-    Atlas.ui.title=document.getElementById("title");
-
-    Atlas.ui.location=document.getElementById("location");
-
-    Atlas.ui.date=document.getElementById("date");
-
-}
-
-//==========================================================
-
-async function cargarAlbum()
-{
-
-    const params=new URLSearchParams(location.search);
-
-    Atlas.data.albumId=
-
-        params.get("album")
-
-        ||
-
-        Atlas.config.defaultAlbum;
-
-    const album=await fetch(
-
-        `albums/${Atlas.data.albumId}/album.json`
-
-    );
-
-    Atlas.data.album=
-
-        await album.json();
-
-    try{
-
-        const meta=await fetch(
-
-            `albums/${Atlas.data.albumId}/metadata.json`
-
-        );
-
-        Atlas.data.metadata=
-
-            await meta.json();
-
+  async function init() {
+    captureUi();
+    bindEvents();
+    try {
+      await loadAlbum();
+      if (!state.pages.length) throw new Error("El álbum no contiene elementos.");
+      await render(0, true);
+    } catch (error) {
+      console.error("Atlas no pudo abrir el álbum:", error);
+      ui.title.textContent = "No se pudo abrir el álbum";
+      ui.location.textContent = "Revisa el enlace e inténtalo de nuevo.";
+      ui.date.textContent = "";
+    } finally {
+      document.body.classList.add("ready");
     }
+  }
 
-    catch{
+  function captureUi() {
+    ui.media = document.getElementById("media");
+    ui.primary = document.getElementById("primaryImage");
+    ui.secondary = document.getElementById("secondaryImage");
+    ui.video = document.getElementById("video");
+    ui.title = document.getElementById("title");
+    ui.location = document.getElementById("location");
+    ui.date = document.getElementById("date");
+  }
 
-        Atlas.data.metadata={};
+  async function loadAlbum() {
+    state.albumId = new URLSearchParams(location.search).get("album") || config.defaultAlbum;
+    const [album, metadata] = await Promise.all([fetchJson(albumUrl("album.json")), fetchOptionalJson(albumUrl("metadata.json"))]);
+    state.pages = (Array.isArray(album.items) ? album.items : [])
+      .filter(item => item && item.file && (item.type === "photo" || item.type === "video"))
+      .map(item => {
+        const extra = metadata[item.file] || {};
+        return { type: item.type, file: item.file, date: item.date || "", title: extra.title || "", location: extra.location || "", visible: extra.visible !== false };
+      });
+  }
 
+  async function fetchJson(url) {
+    const response = await fetch(url, { cache: "no-cache" });
+    if (!response.ok) throw new Error(`No se pudo cargar ${url} (${response.status}).`);
+    return response.json();
+  }
+
+  async function fetchOptionalJson(url) {
+    try { return await fetchJson(url); } catch (_) { return {}; }
+  }
+
+  function albumUrl(file) { return `albums/${encodeURIComponent(state.albumId)}/${file}`; }
+  function mediaUrl(page) { return albumUrl(`media/${encodeURIComponent(page.file)}`); }
+
+  async function render(index, immediate) {
+    if (index < 0 || index >= state.pages.length) return;
+    const page = state.pages[index];
+    const token = ++state.renderToken;
+    state.current = index;
+    updateOverlay(page);
+    resetOffset();
+    if (page.type === "photo") await renderPhoto(page, token, immediate);
+    else await renderVideo(page, token);
+    if (token === state.renderToken) preloadAround(index);
+  }
+
+  async function renderPhoto(page, token, immediate) {
+    stopVideo();
+    const visible = state.primaryVisible ? ui.primary : ui.secondary;
+    const next = state.primaryVisible ? ui.secondary : ui.primary;
+    try { await loadImage(next, mediaUrl(page)); }
+    catch (error) { if (token === state.renderToken) console.error("No se pudo cargar la imagen:", error); return; }
+    if (token !== state.renderToken) return;
+    next.style.translate = "0 0";
+    next.style.display = "block";
+    next.style.opacity = "1";
+    if (immediate || visible.style.display === "none" || !visible.src) {
+      visible.style.display = "none";
+      visible.style.opacity = "0";
+    } else {
+      visible.style.opacity = "0";
+      setTimeout(() => { if (token === state.renderToken) visible.style.display = "none"; }, 260);
     }
+    state.primaryVisible = !state.primaryVisible;
+  }
 
-}
+  function loadImage(image, source) {
+    return new Promise((resolve, reject) => {
+      const clean = () => { image.removeEventListener("load", loaded); image.removeEventListener("error", failed); };
+      const loaded = () => { clean(); resolve(); };
+      const failed = () => { clean(); reject(new Error(source)); };
+      image.addEventListener("load", loaded, { once: true });
+      image.addEventListener("error", failed, { once: true });
+      image.src = source;
+      if (image.complete && image.naturalWidth) loaded();
+    });
+  }
 
-//==========================================================
-// CONSTRUIR PÁGINAS
-//==========================================================
+  async function renderVideo(page, token) {
+    ui.primary.style.display = "none";
+    ui.secondary.style.display = "none";
+    ui.video.style.translate = "0 0";
+    ui.video.style.display = "block";
+    ui.video.src = mediaUrl(page);
+    ui.video.load();
+    try { await waitForVideo(ui.video); }
+    catch (error) { if (token === state.renderToken) console.error("No se pudo cargar el video:", error); return; }
+    if (token === state.renderToken) ui.video.play().catch(() => {});
+  }
 
-function construirPaginas()
-{
+  function waitForVideo(video) {
+    return new Promise((resolve, reject) => {
+      const clean = () => { video.removeEventListener("loadeddata", ready); video.removeEventListener("error", failed); };
+      const ready = () => { clean(); resolve(); };
+      const failed = () => { clean(); reject(new Error(video.currentSrc)); };
+      video.addEventListener("loadeddata", ready, { once: true });
+      video.addEventListener("error", failed, { once: true });
+    });
+  }
 
-    Atlas.data.pages=[];
+  function stopVideo() {
+    ui.video.pause();
+    ui.video.removeAttribute("src");
+    ui.video.load();
+    ui.video.style.display = "none";
+  }
 
-    for(const item of Atlas.data.album.items)
-    {
+  function updateOverlay(page) {
+    ui.title.textContent = page.visible ? page.title : "";
+    ui.location.textContent = page.visible ? page.location : "";
+    ui.date.textContent = page.visible ? formatDate(page.date) : "";
+  }
 
-        const extra=
+  function formatDate(value) {
+    const match = /^(\d{4}):(\d{2})/.exec(value || "");
+    if (!match) return value || "";
+    const months = ["ENERO", "FEBRERO", "MARZO", "ABRIL", "MAYO", "JUNIO", "JULIO", "AGOSTO", "SEPTIEMBRE", "OCTUBRE", "NOVIEMBRE", "DICIEMBRE"];
+    return `${months[Number(match[2]) - 1]} · ${match[1]}`;
+  }
 
-            Atlas.data.metadata[item.file]
+  function go(direction) {
+    const target = state.current + direction;
+    if (target >= 0 && target < state.pages.length) render(target, false);
+  }
 
-            ||
+  function bindEvents() {
+    ui.media.addEventListener("pointerdown", pointerDown);
+    ui.media.addEventListener("pointermove", pointerMove);
+    ui.media.addEventListener("pointerup", pointerUp);
+    ui.media.addEventListener("pointercancel", resetGesture);
+    window.addEventListener("keydown", event => {
+      if (event.key === "ArrowRight" || event.key === " ") { event.preventDefault(); go(1); }
+      else if (event.key === "ArrowLeft") { event.preventDefault(); go(-1); }
+    });
+    window.addEventListener("blur", () => ui.video.pause());
+    document.addEventListener("visibilitychange", () => { if (document.hidden) ui.video.pause(); });
+  }
 
-            {};
+  function pointerDown(event) {
+    if (event.pointerType === "mouse" && event.button !== 0) return;
+    state.dragging = true;
+    state.startX = event.clientX;
+    state.startY = event.clientY;
+    state.deltaX = 0;
+    state.horizontal = false;
+    ui.media.setPointerCapture?.(event.pointerId);
+  }
 
-        Atlas.data.pages.push({
+  function pointerMove(event) {
+    if (!state.dragging) return;
+    const x = event.clientX - state.startX;
+    const y = event.clientY - state.startY;
+    if (!state.horizontal && Math.abs(x) > 8 && Math.abs(x) > Math.abs(y)) state.horizontal = true;
+    if (!state.horizontal) return;
+    state.deltaX = x;
+    activeMedia().style.translate = `${x}px 0`;
+  }
 
-            type:item.type,
+  function pointerUp(event) {
+    if (!state.dragging) return;
+    const navigate = state.horizontal && Math.abs(state.deltaX) >= config.swipeThreshold;
+    const direction = state.deltaX < 0 ? 1 : -1;
+    const tap = !state.horizontal && Math.abs(event.clientX - state.startX) < 8;
+    resetGesture();
+    if (navigate) go(direction);
+    else if (tap) go(event.clientX >= innerWidth / 2 ? 1 : -1);
+  }
 
-            file:item.file,
+  function resetGesture() {
+    state.dragging = false;
+    state.horizontal = false;
+    state.deltaX = 0;
+    resetOffset();
+  }
 
-            date:item.date,
+  function resetOffset() {
+    ui.primary.style.translate = "0 0";
+    ui.secondary.style.translate = "0 0";
+    ui.video.style.translate = "0 0";
+  }
 
-            title:extra.title||"",
+  function activeMedia() {
+    if (ui.video.style.display === "block") return ui.video;
+    return state.primaryVisible ? ui.primary : ui.secondary;
+  }
 
-            location:extra.location||"",
-
-            description:extra.description||"",
-
-            visible:extra.visible!==false,
-
-            fit:extra.fit||"cover"
-
-        });
-
+  function preloadAround(index) {
+    for (let offset = -config.preloadDistance; offset <= config.preloadDistance; offset += 1) {
+      if (!offset || !state.pages[index + offset]) continue;
+      const page = state.pages[index + offset];
+      if (page.type === "photo") { const image = new Image(); image.src = mediaUrl(page); }
+      else { const video = document.createElement("video"); video.preload = "metadata"; video.src = mediaUrl(page); }
     }
-
-}
-
-//==========================================================
-// MOSTRAR PÁGINA
-//==========================================================
-
-function mostrarPagina(index)
-{
-
-    if(index<0)return;
-
-    if(index>=Atlas.data.pages.length)return;
-
-    Atlas.state.current=index;
-
-    const page=
-
-        Atlas.data.pages[index];
-
-    actualizarOverlay(page);
-
-    if(page.type==="photo")
-    {
-
-        mostrarImagen(page);
-
-    }
-    else
-    {
-
-        mostrarVideo(page);
-
-    }
-
-}
-
-//==========================================================
-// OVERLAY
-//==========================================================
-
-function actualizarOverlay(page)
-{
-
-    if(!page.visible)
-    {
-
-        Atlas.ui.title.textContent="";
-
-        Atlas.ui.location.textContent="";
-
-        Atlas.ui.date.textContent="";
-
-        return;
-
-    }
-
-    Atlas.ui.title.textContent=
-
-        page.title;
-
-    Atlas.ui.location.textContent=
-
-        page.location;
-
-    Atlas.ui.date.textContent=
-
-        convertirFecha(page.date);
-
-}
-
-//==========================================================
-// IMÁGENES
-//==========================================================
-
-function mostrarImagen(page)
-{
-
-    Atlas.ui.video.pause();
-
-    Atlas.ui.video.removeAttribute("src");
-
-    Atlas.ui.video.load();
-
-    Atlas.ui.video.style.display="none";
-
-    const visible=
-
-        Atlas.state.showingPrimary
-
-        ? Atlas.ui.primary
-
-        : Atlas.ui.secondary;
-
-    const oculta=
-
-        Atlas.state.showingPrimary
-
-        ? Atlas.ui.secondary
-
-        : Atlas.ui.primary;
-
-    oculta.style.objectFit=page.fit;
-
-    oculta.onload=()=>{
-
-        oculta.style.display="block";
-
-        oculta.style.opacity="1";
-
-        visible.style.opacity="0";
-
-        visible.style.display="none";
-
-        Atlas.state.showingPrimary=
-
-            !Atlas.state.showingPrimary;
-
-        oculta.onload=null;
-
-    };
-
-    oculta.src=
-
-        `albums/${Atlas.data.albumId}/media/${page.file}`;
-
-}
-
-//==========================================================
-// VIDEO
-//==========================================================
-
-function mostrarVideo(page)
-{
-
-    Atlas.ui.primary.style.display="none";
-
-    Atlas.ui.secondary.style.display="none";
-
-    Atlas.ui.video.style.display="block";
-
-    Atlas.ui.video.src=
-
-        `albums/${Atlas.data.albumId}/media/${page.file}`;
-
-    Atlas.ui.video.play();
-
-}
-
-//==========================================================
-// NAVEGACIÓN
-//==========================================================
-
-function cambiarPagina(direccion)
-{
-
-    if(Atlas.state.busy)return;
-
-    const destino=
-
-        Atlas.state.current+direccion;
-
-    if(destino<0)return;
-
-    if(destino>=Atlas.data.pages.length)return;
-
-    Atlas.state.busy=true;
-
-    mostrarPagina(destino);
-
-    setTimeout(()=>{
-
-        Atlas.state.busy=false;
-
-    },Atlas.config.animation);
-
-}
-
-//==========================================================
-// EVENTOS
-//==========================================================
-
-function registrarEventos()
-{
-
-    document.addEventListener(
-
-        "click",
-
-        e=>{
-
-            if(e.clientX>
-
-                window.innerWidth/2)
-
-            {
-
-                cambiarPagina(1);
-
-            }
-            else
-            {
-
-                cambiarPagina(-1);
-
-            }
-
-        }
-
-    );
-
-}
-
-//==========================================================
-// FECHA
-//==========================================================
-
-function convertirFecha(fecha)
-{
-
-    if(!fecha)return"";
-
-    const p=fecha.split(":");
-
-    if(p.length<2)return fecha;
-
-    const meses=[
-
-        "ENERO",
-        "FEBRERO",
-        "MARZO",
-        "ABRIL",
-        "MAYO",
-        "JUNIO",
-        "JULIO",
-        "AGOSTO",
-        "SEPTIEMBRE",
-        "OCTUBRE",
-        "NOVIEMBRE",
-        "DICIEMBRE"
-
-    ];
-
-    return `${meses[parseInt(p[1])-1]} · ${p[0]}`;
-
-}
-
-//==========================================================
-// SWIPE
-//==========================================================
-
-function activarSwipe()
-{
-
-    const zona=document.getElementById("media");
-
-    let inicioX=0;
-    let inicioY=0;
-
-    let deltaX=0;
-
-    zona.addEventListener("touchstart",touchStart,{passive:true});
-    zona.addEventListener("touchmove",touchMove,{passive:true});
-    zona.addEventListener("touchend",touchEnd,{passive:true});
-
-    function touchStart(e)
-    {
-
-        if(Atlas.state.busy)return;
-
-        const t=e.touches[0];
-
-        inicioX=t.clientX;
-        inicioY=t.clientY;
-
-        deltaX=0;
-
-    }
-
-    function touchMove(e)
-    {
-
-        if(Atlas.state.busy)return;
-
-        const t=e.touches[0];
-
-        deltaX=t.clientX-inicioX;
-
-        const img=
-
-            Atlas.state.showingPrimary
-
-            ? Atlas.ui.primary
-
-            : Atlas.ui.secondary;
-
-        img.style.transition="none";
-
-        img.style.transform=
-
-            `translateX(${deltaX}px)`;
-
-    }
-
-    function touchEnd()
-    {
-
-        if(Atlas.state.busy)return;
-
-        const img=
-
-            Atlas.state.showingPrimary
-
-            ? Atlas.ui.primary
-
-            : Atlas.ui.secondary;
-
-        img.style.transition="transform .25s ease";
-
-        img.style.transform="translateX(0)";
-
-        if(Math.abs(deltaX)>90)
-        {
-
-            cambiarPagina(
-
-                deltaX<0
-
-                ?1
-
-                :-1
-
-            );
-
-        }
-
-    }
-
-}
-
-//==========================================================
-// PRECARGA
-//==========================================================
-
-function precargarSiguiente()
-{
-
-    const siguiente=
-
-        Atlas.state.current+1;
-
-    if(siguiente>=Atlas.data.pages.length)
-    {
-
-        return;
-
-    }
-
-    const page=
-
-        Atlas.data.pages[siguiente];
-
-    if(page.type!=="photo")
-    {
-
-        return;
-
-    }
-
-    const img=new Image();
-
-    img.src=
-
-        `albums/${Atlas.data.albumId}/media/${page.file}`;
-
-}
-
-//==========================================================
-// PRECARGA ANTERIOR
-//==========================================================
-
-function precargarAnterior()
-{
-
-    const anterior=
-
-        Atlas.state.current-1;
-
-    if(anterior<0)
-    {
-
-        return;
-
-    }
-
-    const page=
-
-        Atlas.data.pages[anterior];
-
-    if(page.type!=="photo")
-    {
-
-        return;
-
-    }
-
-    const img=new Image();
-
-    img.src=
-
-        `albums/${Atlas.data.albumId}/media/${page.file}`;
-
-}
-
-//==========================================================
-// PRECARGAR ALREDEDOR
-//==========================================================
-
-function precargar()
-{
-
-    precargarAnterior();
-
-    precargarSiguiente();
-
-}
-
-//==========================================================
-// INICIAR MOTOR
-//==========================================================
-
-function iniciarMotor()
-{
-
-    activarSwipe();
-
-    precargar();
-
-}
-
-//==========================================================
-// RECARGAR MOTOR
-//==========================================================
-
-function actualizarMotor()
-{
-
-    precargar();
-
-}
-
-//==========================================================
-// ESTADO
-//==========================================================
-
-function paginaActual()
-{
-
-    return Atlas.data.pages[
-
-        Atlas.state.current
-
-    ];
-
-}
-
-function paginaSiguiente()
-{
-
-    const i=
-
-        Atlas.state.current+1;
-
-    if(i>=Atlas.data.pages.length)
-    {
-
-        return null;
-
-    }
-
-    return Atlas.data.pages[i];
-
-}
-
-function paginaAnterior()
-{
-
-    const i=
-
-        Atlas.state.current-1;
-
-    if(i<0)
-    {
-
-        return null;
-
-    }
-
-    return Atlas.data.pages[i];
-
-}
-
-//==========================================================
-// ARRANQUE DEL MOTOR
-//==========================================================
-
-window.addEventListener(
-
-    "load",
-
-    ()=>{
-
-        iniciarMotor();
-
-    }
-
-);
-
-//==========================================================
-// OBSERVAR CAMBIO DE PÁGINA
-//==========================================================
-
-const mostrarPaginaOriginal=
-
-    mostrarPagina;
-
-mostrarPagina=function(index)
-{
-
-    mostrarPaginaOriginal(index);
-
-    actualizarMotor();
-
-};
-
-//==========================================================
-// LIMPIEZA
-//==========================================================
-
-window.addEventListener(
-
-    "blur",
-
-    ()=>{
-
-        Atlas.ui.video.pause();
-
-    }
-
-);
-
-window.addEventListener(
-
-    "focus",
-
-    ()=>{
-
-        const page=
-
-            paginaActual();
-
-        if(page && page.type==="video")
-        {
-
-            Atlas.ui.video.play();
-
-        }
-
-    }
-
-);
-
-//==========================================================
-// FIN APP
-//==========================================================
-
-
+  }
+})();
