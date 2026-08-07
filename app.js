@@ -138,12 +138,32 @@
     ui.date.textContent = page.visible ? formatDate(page.date) : "";
   }
 
-  function formatDate(value) {
-    const match = /^(\d{4}):(\d{2})/.exec(value || "");
-    if (!match) return value || "";
-    const months = ["ENERO", "FEBRERO", "MARZO", "ABRIL", "MAYO", "JUNIO", "JULIO", "AGOSTO", "SEPTIEMBRE", "OCTUBRE", "NOVIEMBRE", "DICIEMBRE"];
-    return `${months[Number(match[2]) - 1]} · ${match[1]}`;
-  }
+function formatDate(value) {
+
+    if (!value) return "";
+
+    const fecha = new Date(value);
+
+    if (isNaN(fecha.getTime()))
+        return value;
+
+    const meses = [
+        "ENERO",
+        "FEBRERO",
+        "MARZO",
+        "ABRIL",
+        "MAYO",
+        "JUNIO",
+        "JULIO",
+        "AGOSTO",
+        "SEPTIEMBRE",
+        "OCTUBRE",
+        "NOVIEMBRE",
+        "DICIEMBRE"
+    ];
+
+    return `${fecha.getDate()} ${meses[fecha.getMonth()]} ${fecha.getFullYear()}`;
+}
 
   function go(direction) {
     const target = state.current + direction;
