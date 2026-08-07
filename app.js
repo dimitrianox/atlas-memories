@@ -154,7 +154,7 @@ function updateOverlay(page) {
 
         overlay.classList.remove("visible");
 
-    }, 5000);
+    }, 1000);
 
 }
 
