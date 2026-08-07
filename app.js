@@ -140,12 +140,11 @@
 
 function formatDate(value) {
 
-    if (!value) return "";
+    const match =
+        /^(\d{4})[:\-](\d{2})[:\-](\d{2})/.exec(value || "");
 
-    const fecha = new Date(value);
-
-    if (isNaN(fecha.getTime()))
-        return value;
+    if (!match)
+        return value || "";
 
     const meses = [
         "ENERO",
@@ -162,7 +161,11 @@ function formatDate(value) {
         "DICIEMBRE"
     ];
 
-    return `${fecha.getDate()} ${meses[fecha.getMonth()]} ${fecha.getFullYear()}`;
+    const año = match[1];
+    const mes = meses[Number(match[2]) - 1];
+    const dia = Number(match[3]);
+
+    return `${dia} · ${mes} · ${año}`;
 }
 
   function go(direction) {
