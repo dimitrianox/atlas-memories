@@ -167,6 +167,9 @@ body{
     right:0;
     bottom:0;
 
+opacity:0;
+transition:opacity .4s ease;
+
     z-index:20;
 
     display:flex;
@@ -301,6 +304,10 @@ body.ready #fade{
 
     z-index:100;
 
+}
+
+#overlay.visible{
+    opacity:1;
 }
 
 /* ==========================================================
