@@ -4,6 +4,12 @@
     "total":  34,
     "items":  [
                   {
+                      "type":  "photo",
+                      "file":  "cover.png",
+                      "date":  ""
+		      "cover": true
+                  },
+                  {
                       "type":  "video",
                       "file":  "20250511_230006_1.mp4",
                       "date":  "2025:05:11 21:01:20"
