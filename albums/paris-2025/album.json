@@ -1,13 +1,12 @@
 ﻿{
     "id":  "paris-2025",
-    "generated":  "2026-08-07 16:32:37",
-    "total":  34,
+    "generated":  "2026-08-08 08:10:16",
+    "total":  35,
     "items":  [
                   {
                       "type":  "photo",
                       "file":  "cover.png",
-                      "date":  ""
-		      "cover": true
+                      "date":  "1900:01:01 00:00:00"
                   },
                   {
                       "type":  "video",
