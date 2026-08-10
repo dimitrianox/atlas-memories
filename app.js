@@ -161,24 +161,24 @@ function updateOverlay(page) {
 function formatDate(value) {
 
     const match =
-        /^(\d{4})[:\-](\d{2})[:\-](\d{2})/.exec(value || "");
+        /^(\d{4})[:-](\d{2})[:-](\d{2})/.exec(value || "");
 
     if (!match)
         return value || "";
 
     const meses = [
-  "Enero",
-  "Febrero",
-  "Marzo",
-  "Abril",
-  "Mayo",
-  "Junio",
-  "Julio",
-  "Agosto",
-  "Septiembre",
-  "Octubre",
-  "Noviembre",
-  "Diciembre"
+        "Enero",
+        "Febrero",
+        "Marzo",
+        "Abril",
+        "Mayo",
+        "Junio",
+        "Julio",
+        "Agosto",
+        "Septiembre",
+        "Octubre",
+        "Noviembre",
+        "Diciembre"
     ];
 
     const año = match[1];
