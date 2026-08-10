@@ -202,7 +202,7 @@ transition:opacity .4s ease;
 
 #title{
 
-    font-size:20px;
+    font-size:18px;
 
     font-weight:400;
 
@@ -218,9 +218,9 @@ transition:opacity .4s ease;
 
 #location{
 
-    font-size:18px;
+    font-size:16px;
 
-    font-weight:400;
+    font-weight:300;
 
     margin-bottom:4px;
 
@@ -230,9 +230,9 @@ transition:opacity .4s ease;
 
 #date{
 
-    font-size:18px;
+    font-size:16px;
 
-    font-weight:400;
+    font-weight:250;
 
     letter-spacing:0;
 
