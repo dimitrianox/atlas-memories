@@ -135,6 +135,10 @@ body{
 
     -webkit-user-drag:none;
 
+/* Agrega estas líneas para ocultar el menú del sistema: */
+    -webkit-touch-callout: none; 
+    pointer-events: none;
+
 }
 
 #primaryImage{
