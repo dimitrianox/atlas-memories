@@ -1,1 +1,452 @@
-{}
+{
+  "cover.png": {
+    "title": "",
+    "location": "",
+    "description": "",
+    "visible": true
+  },
+  "VID-20250512-WA0037.mp4": {
+    "title": "",
+    "location": "",
+    "description": "",
+    "visible": true
+  },
+  "IMG-20250512-WA0032(1).jpg": {
+    "title": "Church of Our Lady / Boniface Bridge",
+    "location": "Brujas, Bélgica",
+    "description": "Una vista pintoresca de la Iglesia de Nuestra Señora y un carruaje tirado por caballos cruzando el puente adoquinado en Brujas.",
+    "visible": true
+  },
+  "20250512_123915.mp4": {
+    "title": "",
+    "location": "",
+    "description": "",
+    "visible": true
+  },
+  "20250512_124346.mp4": {
+    "title": "",
+    "location": "",
+    "description": "",
+    "visible": true
+  },
+  "20250512_124420.mp4": {
+    "title": "",
+    "location": "",
+    "description": "",
+    "visible": true
+  },
+  "20250512_124736.mp4": {
+    "title": "",
+    "location": "",
+    "description": "",
+    "visible": true
+  },
+  "20250512_125156.mp4": {
+    "title": "",
+    "location": "",
+    "description": "",
+    "visible": true
+  },
+  "20250512_125525.mp4": {
+    "title": "",
+    "location": "",
+    "description": "",
+    "visible": true
+  },
+  "20250512_125843.mp4": {
+    "title": "",
+    "location": "",
+    "description": "",
+    "visible": true
+  },
+  "20250512_130002.mp4": {
+    "title": "",
+    "location": "",
+    "description": "",
+    "visible": true
+  },
+  "20250512_130423.mp4": {
+    "title": "",
+    "location": "",
+    "description": "",
+    "visible": true
+  },
+  "20250512_130916.mp4": {
+    "title": "",
+    "location": "",
+    "description": "",
+    "visible": true
+  },
+  "20250512_130956.mp4": {
+    "title": "",
+    "location": "",
+    "description": "",
+    "visible": true
+  },
+  "20250512_132406.mp4": {
+    "title": "",
+    "location": "",
+    "description": "",
+    "visible": true
+  },
+  "20250512_132757.mp4": {
+    "title": "",
+    "location": "",
+    "description": "",
+    "visible": true
+  },
+  "20250512_132817.mp4": {
+    "title": "",
+    "location": "",
+    "description": "",
+    "visible": true
+  },
+  "20250512_132927.mp4": {
+    "title": "",
+    "location": "",
+    "description": "",
+    "visible": true
+  },
+  "20250512_134416.mp4": {
+    "title": "",
+    "location": "",
+    "description": "",
+    "visible": true
+  },
+  "EEFA1D1D-F4C6-4873-A04D-6AAFDD690C7A.JPEG": {
+    "title": "Minnewaterpark (Minnewater)",
+    "location": "Brujas, Bélgica",
+    "description": "El Minnewater, conocido como el Lago del Amor, con su icónico edificio y la vegetación circundante en Brujas.",
+    "visible": true
+  },
+  "92528D16-52F8-4269-B849-F1FFE3532F99.JPEG": {
+    "title": "Minnewater (Lago del Amor)",
+    "location": "Brujas, Bélgica",
+    "description": "Vista del canal Minnewater y edificios históricos tradicionales reflejados en el agua.",
+    "visible": true
+  },
+  "C643FD86-F950-4E85-96B8-DE6B448A2263.JPEG": {
+    "title": "Castillo de la Faille",
+    "location": "Brujas, Bélgica",
+    "description": "Un hermoso castillo de ladrillo rojo con agujas cónicas junto a un canal, ahora funcionando como un restaurante con terraza.",
+    "visible": true
+  },
+  "F3667EFC-5151-4490-8F78-9D29DFF15205.JPEG": {
+    "title": "Begijnhof (Beginage)",
+    "location": "Brujas, Bélgica",
+    "description": "Casas históricas tradicionales de ladrillo con techos de tejas y chimeneas dentro del complejo del Beaterio de Brujas.",
+    "visible": true
+  },
+  "561C94BD-A682-4764-ADFB-5A905A6C2288.JPEG": {
+    "title": "Begijnhof (Beginage)",
+    "location": "Brujas, Bélgica",
+    "description": "Casas históricas de ladrillo y tejados a dos aguas en el Beaterio de Brujas, con personas descansando en bancos frente a un muro de piedra.",
+    "visible": true
+  },
+  "35755174-3EF8-4A91-91D1-3B0E1F1AF37A.JPEG": {
+    "title": "Begijnhof",
+    "location": "Brujas, Bélgica.",
+    "description": "Conjunto histórico de casas tradicionales con tejados de pizarra y ladrillo amarillo, característico de la arquitectura flamenca.",
+    "visible": true
+  },
+  "F7D95835-0882-4DB3-B14E-93447BD9FB31.JPEG": {
+    "title": "Begijnhof",
+    "location": "Brujas, Bélgica",
+    "description": "Detalle arquitectónico de una de las casas históricas del Beaterio de Brujas, mostrando una ventana tradicional con marcos oscuros y fachada de ladrillo rojo.",
+    "visible": true
+  },
+  "AE9A93BA-27D3-4118-A444-A9C06247A053.JPEG": {
+    "title": "Begijnhof",
+    "location": "Brujas, Bélgica",
+    "description": "Casas tradicionales blancas con tejados de tejas rojas en el Beguinaje de Brujas.",
+    "visible": true
+  },
+  "9BC58A13-3E66-4018-8506-94371DE805DB.JPEG": {
+    "title": "Begijnhof (Beginage)",
+    "location": "Brujas, Bélgica",
+    "description": "Calles adoctrinas y casas históricas con fachadas blancas típicas del Beaterio de Brujas.",
+    "visible": true
+  },
+  "2F4FABD0-62BB-4F46-A381-64EE32A5B483.JPEG": {
+    "title": "Begijnhof",
+    "location": "Brujas, Bélgica",
+    "description": "Fachada blanca de estilo tradicional con tejado escalonado en el beguinaje de Brujas.",
+    "visible": true
+  },
+  "B91F4BD4-FF30-4EEC-A72A-40CD1CB8A23D.JPEG": {
+    "title": "Beguinenhuisje (Maison Béguinale / Beguinale House)",
+    "location": "Bélgica",
+    "description": "Letrero tradicional en hierro forjado que indica 'Beguinenhuisje / Maison Béguinale / Beguinale House', característico de los beguinajes históricos en Flandes y Bélgica.",
+    "visible": true
+  },
+  "AC58B5A7-D145-4BDD-A4A8-0404418B1F84.JPEG": {
+    "title": "La Mona",
+    "location": "Valle de Santiago, México",
+    "description": "Una figura monumental y enigmática conocida localmente como 'La Mona', ubicada en una fachada en Valle de Santiago.",
+    "visible": true
+  },
+  "EC67C2C4-DB5F-42FD-9565-2CF5964C140F.JPEG": {
+    "title": "Begijnhof",
+    "location": "Brujas, Bélgica",
+    "description": "Calles adoctrinas y edificios históricos de ladrillo rojo del Beaterio de Brujas.",
+    "visible": true
+  },
+  "9BAE68C5-A266-4B66-A7D5-E65A8C1D0DBB.JPEG": {
+    "title": "BOWLS Asian Cuisine",
+    "location": "Brujas, Bélgica",
+    "description": "Restaurante de comida asiática ubicado en un edificio tradicional de ladrillo y fachada blanca en una calle adoquinada.",
+    "visible": true
+  },
+  "5DEA5839-0884-497E-AD68-F76FC853F74B.JPEG": {
+    "title": "Käthe Wohlfahrt",
+    "location": "Brujas, Bélgica",
+    "description": "Escaparate de una tienda Käthe Wohlfahrt en Brujas lleno de decoraciones navideñas de madera, cascanueces y pirámides navideñas.",
+    "visible": true
+  },
+  "8F71209B-C78A-4211-8ABF-0EEB93252B38.JPEG": {
+    "title": "Begijnhof",
+    "location": "Brujas, Bélgica",
+    "description": "Muralla de ladrillo y puerta de entrada al histórico beginaje de Brujas, con casas tradicionales de tejados a dos aguas al fondo bajo un cielo azul despejado.",
+    "visible": true
+  },
+  "885619C0-EF95-4B95-B332-B916D65CCEAE.JPEG": {
+    "title": "Stoofstraat",
+    "location": "Brujas, Bélgica",
+    "description": "Calle adoconada tradicional bordeada de casas históricas de ladrillo y tejados a dos aguas en el centro histórico de Brujas.",
+    "visible": true
+  },
+  "F6A49A38-7B81-4467-A04D-A8EC530A65CF.JPEG": {
+    "title": "Catedral de San Salvador",
+    "location": "Brujas, Bélgica",
+    "description": "La catedral de San Salvador es una iglesia gótica del siglo XII situada en Brujas, Bélgica, famosa por su gran torre que domina el perfil de la ciudad.",
+    "visible": true
+  },
+  "187B9F29-1997-40AB-9B84-A756D8406F68.JPEG": {
+    "title": "Catedral de San Salvador",
+    "location": "Brujas, Bélgica",
+    "description": "Torre de la Catedral de San Salvador bajo un cielo azul despejado.",
+    "visible": true
+  },
+  "BF367C25-1D9E-45E1-890C-8434907EED2F.JPEG": {
+    "title": "Hospital de San Juan",
+    "location": "Brujas, Bélgica",
+    "description": "Antiguo hospital medieval situado en Brujas, que actualmente alberga un museo dedicado al pintor Hans Memling.",
+    "visible": true
+  },
+  "AACA679C-203D-4023-B040-739DC403837C.JPEG": {
+    "title": "Onze-Lieve-Vrouwekerk",
+    "location": "Brujas, Bélgica",
+    "description": "Entrada principal de la Iglesia de Nuestra Señora en Brujas, destacando su arquitectura gótica de ladrillo y el gran portal abocinado.",
+    "visible": true
+  },
+  "29785786-F60A-42F6-A395-1C0D2771E0D7.JPEG": {
+    "title": "Hospital de San Juan",
+    "location": "Brujas, Bélgica",
+    "description": "Antiguo hospital medieval situado en Brujas, uno de los edificios hospitalarios más antiguos que se conservan en Europa.",
+    "visible": true
+  },
+  "FA5714AA-84EC-4007-99DE-56F1B1DC2CAE.JPEG": {
+    "title": "Iglesia de Nuestra Señora",
+    "location": "Brujas, Bélgica",
+    "description": "Iglesia gótica de ladrillo famosa por su torre de 115 metros de altura y por albergar la escultura de la Virgen con el Niño de Miguel Ángel.",
+    "visible": true
+  },
+  "82BDB227-2220-4448-915C-76D3AA7FF166.JPEG": {
+    "title": "Minnewaterpark / Begijnhof area",
+    "location": "Brujas, Bélgica",
+    "description": "Una plaza adoquinar con edificios históricos tradicionales europeos y turistas caminando en un día soleado.",
+    "visible": true
+  },
+  "7DDFEEAE-158A-4664-9638-C2ABD6971F06.JPEG": {
+    "title": "Hospital de San Juan (Sint-Janshospitaal)",
+    "location": "Brujas, Bélgica",
+    "description": "Una calle adoquinerada en Brujas junto al histórico Hospital de San Juan, con la característica torre de la Iglesia de Nuestra Señora al fondo.",
+    "visible": true
+  },
+  "A2FB1908-093A-4441-B4F0-1D6F44A8A0FC.JPEG": {
+    "title": "Onze-Lieve-Vrouwekerk (Iglesia de Nuestra Señora)",
+    "location": "Brujas, Bélgica",
+    "description": "Una imponente iglesia gótica de ladrillo conocida por su aguja alta y por albergar la Madonna con el Niño de Miguel Ángel.",
+    "visible": true
+  },
+  "3121622A-123A-4084-B8AA-872E268818BB.JPEG": {
+    "title": "Basílica de la Santa Sangre",
+    "location": "Brujas, Bélgica",
+    "description": "Detalle arquitectónico de la Basílica de la Santa Sangre en la plaza Burg.",
+    "visible": true
+  },
+  "DD22CCD5-A02E-44B3-8839-8505F98991F8.JPEG": {
+    "title": "Historische Stadsschouwburg / Gruuthusemuseum",
+    "location": "Brujas, Bélgica",
+    "description": "Edificio histórico de arquitectura gótica de ladrillo con torre y ornamentación clásica en Brujas.",
+    "visible": true
+  },
+  "5137DD8A-A95F-45F4-B4A0-7C6293DC140B.JPEG": {
+    "title": "Cruz de hierro forjado",
+    "location": "Brujas, Bélgica",
+    "description": "Una cruz de metal ornamental instalada sobre un pedestal de piedra contra una pared de ladrillo y un monumento conmemorativo.",
+    "visible": true
+  },
+  "61733BE6-0AA6-4B6F-9AA5-C636ED804E2E.JPEG": {
+    "title": "",
+    "location": "",
+    "description": "",
+    "visible": true
+  },
+  "BC4159D4-C0B7-4FDD-9144-6B58846B966E.JPEG": {
+    "title": "Poortersloge (Logia de los Porteadores)",
+    "location": "Brujas, Bélgica",
+    "description": "Antigua logia gremial medieval con una torre cilíndrica de ladrillo rojo y arquitectura gótica flamenca.",
+    "visible": true
+  },
+  "5DF983D1-1E42-4C3A-8198-D28A6175F5D7.JPEG": {
+    "title": "Arentshuis",
+    "location": "Brujas, Bélgica",
+    "description": "Una casa histórica de madera con un letrero de hierro forjado que muestra una luna creciente dorada, ubicada en Brujas.",
+    "visible": true
+  },
+  "7BEDDDEE-D31B-4B4C-B12D-E03E581DDAB2.JPEG": {
+    "title": "Het Steen",
+    "location": "Amberes, Bélgica",
+    "description": "Detalle de la fachada de ladrillo y la estructura histórica del castillo Het Steen, el edificio más antiguo conservado de Amberes.",
+    "visible": true
+  },
+  "81163A78-25E5-4F47-908F-7AEED1ED3331.JPEG": {
+    "title": "Dijver Canal",
+    "location": "Brujas, Bélgica",
+    "description": "Canal en Brujas donde turistas esperan para abordar un bote.",
+    "visible": true
+  },
+  "901E51CE-DF33-492F-86C4-D9EC6D76A770.JPEG": {
+    "title": "Canales de Brujas",
+    "location": "Brujas, Bélgica",
+    "description": "Vista de arquitectura tradicional flamenca a lo largo de uno de los pintorescos canales de Brujas, destacando edificios históricos de ladrillo y fachadas blancas.",
+    "visible": true
+  },
+  "0DF266FF-A3D3-4318-A3DF-71E377BD7B31.JPEG": {
+    "title": "Estatua del león de Gante (o un monumento heráldico similar)",
+    "location": "Brujas, Bélgica",
+    "description": "Una estatua de piedra que representa a un león sosteniendo un escudo heráldico sobre un pilar ornamental, típica de la arquitectura flamenca.",
+    "visible": true
+  },
+  "D19A867E-E791-4A9F-B15A-73BD603AEC0E.JPEG": {
+    "title": "Brujas / Groenerei",
+    "location": "Brujas, Bélgica",
+    "description": "Calle adoquinada con edificios históricos de ladrillo rojo y una puerta ornamental con estatuas doradas.",
+    "visible": true
+  },
+  "4B60F1DE-1D86-4C8B-99DB-58A6771EBD53.JPEG": {
+    "title": "Hospital de San Juan",
+    "location": "Brujas, Bélgica",
+    "description": "Antiguo hospital medieval con una arquitectura característica de ladrillo rojo y torres con chapiteles.",
+    "visible": true
+  },
+  "814C86D0-EB50-4DA0-8EE6-AF8BFA7CA8B7.JPEG": {
+    "title": "",
+    "location": "",
+    "description": "",
+    "visible": true
+  },
+  "49EF4A47-2B3C-4791-9BB4-83E4A81D7B00.JPEG": {
+    "title": "Ayuntamiento de Brujas",
+    "location": "Brujas, Bélgica",
+    "description": "Famoso edificio de estilo gótico situado en la plaza Burg de Brujas, adornado con estatuas y banderas.",
+    "visible": true
+  },
+  "8AB50858-6E2F-448F-9B8C-E900F0E25835.JPEG": {
+    "title": "Ayuntamiento de Middelburg",
+    "location": "Middelburg, Países Bajos",
+    "description": "Detalle de una torre y la fachada del histórico ayuntamiento gótico (Stadhuis) de Middelburg contra un cielo azul.",
+    "visible": true
+  },
+  "3E88C39B-7E3F-43A1-A4A6-4EF6BB6E9F90.JPEG": {
+    "title": "Ayuntamiento de Amberes",
+    "location": "Amberes, Bélgica",
+    "description": "Fachada del Ayuntamiento de Amberes en la Grote Markt, destacando su arquitectura renacentista y ornamentación clásica.",
+    "visible": true
+  },
+  "1DE3942C-102D-49A3-B6A1-526B96E06981.JPEG": {
+    "title": "",
+    "location": "",
+    "description": "",
+    "visible": true
+  },
+  "56092CEF-14F2-404D-91AD-FF3BED0EE095.JPEG": {
+    "title": "Burg",
+    "location": "Brujas, Bélgica",
+    "description": "Una plaza histórica con arquitectura medieval situada en el centro de Brujas.",
+    "visible": true
+  },
+  "7DB018A1-2DFD-4181-A0F4-BE7A451D4F1A.JPEG": {
+    "title": "Historisch Centrum (Centro histórico de Brujas)",
+    "location": "Brujas, Bélgica",
+    "description": "Edificios tradicionales de arquitectura flamenca con fachada de ladrillo y techos a dos aguas, ubicados en una plaza adoquinada con terrazas y ciclistas.",
+    "visible": true
+  },
+  "E2D54EDA-0066-43A9-800B-7B402B943257.JPEG": {
+    "title": "Belfort (Torre de los Halcones)",
+    "location": "Brujas, Bélgica",
+    "description": "Una vista del campanario medieval (Belfort) en el centro histórico de Brujas, flanqueado por edificios históricos de ladrillo y una plaza con visitantes.",
+    "visible": true
+  },
+  "CF520901-E02C-4A0B-88AE-D01AA5311658.JPEG": {
+    "title": "Ayuntamiento de Gante",
+    "location": "Gante, Bélgica",
+    "description": "Entrada abovedada de ladrillo que conduce al patio interior del ayuntamiento medieval.",
+    "visible": true
+  },
+  "A85BEB5F-6645-4A23-9981-08085ADFFC78.JPEG": {
+    "title": "Historium Brugge",
+    "location": "Brujas, Bélgica",
+    "description": "El edificio de la Plaza Mayor (Markt) de Brujas que alberga el Historium, una atracción turística sobre la historia medieval de la ciudad.",
+    "visible": true
+  },
+  "08108DAE-6EDD-48B1-96F7-83E2089EC780.JPEG": {
+    "title": "Restaurante con Decoración Navideña",
+    "location": "Bruselas, Bélgica",
+    "description": "Una terraza de restaurante decorada con luces navideñas, una guirnalda en forma de corazón y mesas con manteles de cuadros rojos y blancos.",
+    "visible": true
+  },
+  "06064381-5A21-4B76-87A3-AE8847583525.JPEG": {
+    "title": "Iglesia de Nuestra Señora",
+    "location": "Brujas, Bélgica",
+    "description": "Iglesia gótica de ladrillo conocida por su alta torre y obras de arte.",
+    "visible": true
+  },
+  "70B917DA-9EA9-4303-9F1B-2A0122AD249D.JPEG": {
+    "title": "Gruuthusemuseum",
+    "location": "Brujas, Bélgica",
+    "description": "Una vista exterior del edificio histórico del Museo Gruuthuse y sus alrededores en Brujas, con un grupo de personas junto a un farol y varias bicicletas estacionadas.",
+    "visible": true
+  },
+  "C86CD4C2-1CB1-4805-9625-6241E8069403.JPEG": {
+    "title": "Torre de la Iglesia de Nuestra Señora",
+    "location": "Brujas, Bélgica",
+    "description": "Impresionante torre de ladrillo gótico de la Iglesia de Nuestra Señora, una de las estructuras más altas de la ciudad.",
+    "visible": true
+  },
+  "4373C5FC-30EE-4CFD-B8DF-5F38FB44F6DF.JPEG": {
+    "title": "Hospital de San Juan",
+    "location": "Brujas, Bélgica",
+    "description": "Antiguo hospital medieval situado en el centro histórico de Brujas, que destaca por su arquitectura de ladrillo y sus techos inclinados.",
+    "visible": true
+  },
+  "5CD119D8-171C-40E8-9F39-6B2F1D0C822F.JPEG": {
+    "title": "",
+    "location": "",
+    "description": "",
+    "visible": true
+  },
+  "E9BDA36B-8100-4E7F-8AC6-F3BB8D81C52B.JPEG": {
+    "title": "Boniface Bridge (Bonifaciusbrug)",
+    "location": "Brujas, Bélgica",
+    "description": "Un pintoresco y romántico puente sobre los canales de Brujas, flanqueado por arquitectura histórica de ladrillo.",
+    "visible": true
+  },
+  "A5D0968D-8ACA-4D4A-8E6B-D71DD221C123.JPEG": {
+    "title": "Canales de Brujas",
+    "location": "Brujas, Bélgica",
+    "description": "Una pintoresca vista de los canales históricos de Brujas con arquitectura tradicional europea y un árbol prominente en primer plano.",
+    "visible": true
+  }
+}
