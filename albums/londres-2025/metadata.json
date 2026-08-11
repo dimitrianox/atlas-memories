@@ -11,14 +11,14 @@
     "description": "",
     "visible": true
   },
-  "34A87986-BD31-49E1-9A58-1EDAE1365508.JPEG": {
-    "title": "Big Ben / Parliament Square",
+  "A3E9D905-100D-42F9-AAF2-3EBE78D1042F.JPEG": {
+    "title": "Cabina Telefónica",
     "location": "Londres, Inglaterra.",
     "description": "",
     "visible": true
   },
-  "A3E9D905-100D-42F9-AAF2-3EBE78D1042F.JPEG": {
-    "title": "Cabina Telefónica",
+  "34A87986-BD31-49E1-9A58-1EDAE1365508.JPEG": {
+    "title": "Big Ben / Parliament Square",
     "location": "Londres, Inglaterra.",
     "description": "",
     "visible": true
@@ -60,7 +60,7 @@
     "visible": true
   },
   "7561D0A0-278B-4F7C-B3DE-386AEB76939D.JPEG": {
-    "title": "Big Ben and Parliament Square",
+    "title": "Big Ben / Parliament Square",
     "location": "Londres, Inglaterra.",
     "description": "",
     "visible": true
@@ -95,6 +95,12 @@
     "description": "",
     "visible": true
   },
+  "4171DC54-C3E3-4E21-92EA-2350E262FBB6.JPEG": {
+    "title": "",
+    "location": "Londres, Inglaterra.",
+    "description": "",
+    "visible": true
+  },
   "39E63B54-366B-4752-AA46-F1B279FD8845.JPEG": {
     "title": "Sutton Railway Station",
     "location": "Londres, Inglaterra.",
@@ -103,6 +109,12 @@
   },
   "20250510_120044.mp4": {
     "title": "De Sutton a London Bridge",
+    "location": "Londres, Inglaterra.",
+    "description": "",
+    "visible": true
+  },
+  "4A157E02-A145-475E-AB9A-BB3AC8716992.JPEG": {
+    "title": "Vagón de Tren",
     "location": "Londres, Inglaterra.",
     "description": "",
     "visible": true
@@ -131,6 +143,12 @@
     "description": "",
     "visible": true
   },
+  "7B391518-450D-45DE-A6A9-884A85D75165.JPEG": {
+    "title": "London Bridge Station",
+    "location": "Londres, Inglaterra.",
+    "description": "",
+    "visible": true
+  },
   "FD0C2828-162D-42FB-B455-E4B0056125EC.JPEG": {
     "title": "London Bridge Station",
     "location": "Londres, Inglaterra.",
@@ -138,7 +156,7 @@
     "visible": true
   },
   "20250510_114355.mp4": {
-    "title": "London Bridge Station",
+    "title": "Tren en London Bridge Station",
     "location": "Londres, Inglaterra.",
     "description": "",
     "visible": true
@@ -164,6 +182,18 @@
   "EC2A0A5E-9EE9-4E09-97E7-689342F4666A.JPEG": {
     "title": "Librería Waterstones ",
     "location": "Trafalgar Square, Londres",
+    "description": "",
+    "visible": true
+  },
+  "232661D7-B640-4526-9636-8F8663C706DB.JPEG": {
+    "title": "His Majesty's Theatre",
+    "location": "Londres, Inglaterra.",
+    "description": "",
+    "visible": true
+  },
+  "7AD55402-CB3A-4E21-978E-3E97C1C94A29.JPEG": {
+    "title": "Piccadilly Theatre",
+    "location": "Londres, Inglaterra.",
     "description": "",
     "visible": true
   },
@@ -263,8 +293,20 @@
     "description": "",
     "visible": true
   },
+  "296A016B-ADC7-44A5-8C71-2384ED09AC03.JPEG": {
+    "title": "Tower Bridge",
+    "location": "Londres, Inglaterra.",
+    "description": "",
+    "visible": true
+  },
   "B636ECA5-B5BB-4672-A5DA-509BAAB0E10A.JPEG": {
     "title": "Hay’s Galleria / The Navigators",
+    "location": "Londres, Inglaterra.",
+    "description": "",
+    "visible": true
+  },
+  "035A8761-8291-43AE-A088-8C23C2D4EEA5.JPEG": {
+    "title": "Cartel St Dunstan",
     "location": "Londres, Inglaterra.",
     "description": "",
     "visible": true
@@ -295,6 +337,12 @@
   },
   "2DCD17B6-3837-4993-A084-7AF8B9FD6445.JPEG": {
     "title": "Ruinas de St Dunstan-in-the-East",
+    "location": "Londres, Inglaterra.",
+    "description": "",
+    "visible": true
+  },
+  "04FEE462-CD01-4AB9-89F3-A777DAC9D6BD.JPEG": {
+    "title": "San Thomas Street / The Shard",
     "location": "Londres, Inglaterra.",
     "description": "",
     "visible": true
