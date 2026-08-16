@@ -1,8 +1,13 @@
 {
   "id": "luxemburgo-2025",
   "generated": "2026-08-16 07:42:53",
-  "total": 54,
+  "total": 55,
   "items": [
+    {
+      "type": "photo",
+      "file": "cover.png",
+      "date": ""
+    },
     {
       "type": "video",
       "file": "20250514_131642.mp4",

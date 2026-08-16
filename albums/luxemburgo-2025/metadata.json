@@ -1,4 +1,10 @@
 {
+  "cover.png": {
+    "title": "",
+    "location": "",
+    "description": "",
+    "visible": true
+  },
   "20250514_131642.mp4": {
     "title": "Vista Interior",
     "location": "Catedral de Notre-Dame de Luxemburgo",
@@ -156,8 +162,8 @@
     "visible": true
   },
   "2BE5F815-1E19-4C01-99FA-4F2DC2F4FC9D.JPEG": {
-    "title": "Eglise Saint-Martin de Dudelange",
-    "location": "Dudelange, Luxemburgo",
+    "title": "Veleta de Gallo",
+    "location": "glesia de San Miguel, Luxemburgo",
     "description": "Detalle del campanario y chapitel con veleta de gallo de una iglesia histórica.",
     "visible": true
   },
@@ -193,7 +199,7 @@
   },
   "FD8B91BE-BB75-4B4C-BD84-C2AF2A8F46DE.JPEG": {
     "title": "Puertas de la Iglesia",
-    "location": "Eglise Saint Michel Luxembourg",
+    "location": "Eglise Saint Michel, Luxembourg",
     "description": "La iglesia de San Miguel es la iglesia católica más antigua de la ciudad de Luxemburgo.",
     "visible": true
   },
@@ -235,7 +241,7 @@
   },
   "97EAE277-BFAA-4C2D-935C-B2D330D34762.JPEG": {
     "title": "Abadía de Neumünster",
-    "location": "Ciudad de Luxemburgo, Luxemburgo",
+    "location": "Luxemburgo, Luxemburgo",
     "description": "Antigua abadía benedictina situada en el histórico barrio de Grund, actualmente convertida en un centro cultural y de reuniones.",
     "visible": true
   },
@@ -246,7 +252,7 @@
     "visible": true
   },
   "27723E45-0757-4971-A3D5-70F5EEEADDCD.JPEG": {
-    "title": "Grund",
+    "title": "Barrio de Grund",
     "location": "Luxemburgo, Luxemburgo",
     "description": "Vista panorámica del barrio de Grund y el río Alzette desde la parte superior.",
     "visible": true
@@ -258,8 +264,8 @@
     "visible": true
   },
   "5CC21C4D-F880-4E75-9CBD-689E12B71346.JPEG": {
-    "title": "Atracciones de feria en la Place d'Armes",
-    "location": "Luxemburgo, Luxemburgo",
+    "title": "Atracciones de Feria ",
+    "location": "Place d'Armes, Luxemburgo",
     "description": "Una feria callejera con un carrusel tradicional y un puesto de juegos temático de piratas.",
     "visible": true
   },
@@ -300,19 +306,19 @@
     "visible": true
   },
   "23F72B72-8C19-4FF8-A660-1E28A452B5E9.JPEG": {
-    "title": "Caisse d'Épargne de l'État (BGL BNP Paribas)",
+    "title": "Banco Estatal Spuerkeess",
     "location": "Luxemburgo, Luxemburgo",
     "description": "Edificio histórico con una torre cónica verde ubicado en la Place de Metz, en la ciudad de Luxemburgo.",
     "visible": true
   },
   "DC984DCA-670C-458F-9E0D-0C11B559C313.JPEG": {
-    "title": "State Savings Bank (Spuerkeess)",
+    "title": "Banco Estatal Spuerkeess",
     "location": "Luxemburgo, Luxemburgo",
     "description": "Edificio histórico de la Caja de Ahorros del Estado (Spuerkeess) en la ciudad de Luxemburgo.",
     "visible": true
   },
   "7E1451D0-A7C8-4D08-BB84-B07AB3D617C7.JPEG": {
-    "title": "State Savings Bank (Spuerkeess)",
+    "title": "Banque et Caisse d'Épargne de l'État",
     "location": "Luxemburgo, Luxemburgo",
     "description": "Edificio histórico de la Caja de Ahorros del Estado (Spuerkeess) en la ciudad de Luxemburgo.",
     "visible": true
