@@ -1,61 +1,13 @@
 {
-  "00806DF8-9E29-42F8-BD79-90CA7C5E7028.JPEG": {
-    "title": "Abadía de Neumünster",
-    "location": "Ciudad de Luxemburgo, Luxemburgo",
-    "description": "Una histórica abadía situada en el barrio de Grund, a los pies de las murallas de la ciudad de Luxemburgo, actualmente utilizada como centro cultural y de encuentros.",
-    "visible": true
-  },
-  "0161356E-3303-464C-B65A-F4C1EE2CC5EB.JPEG": {
-    "title": "Avenue de la Liberté",
-    "location": "Luxemburgo, Luxemburgo",
-    "description": "Una vista de la Avenida de la Libertad (Avenue de la Liberté) con vías de tranvía en la ciudad de Luxemburgo.",
-    "visible": true
-  },
-  "049BA04B-EDF4-4394-9531-D6A836F256AB.JPEG": {
-    "title": "Monumento Le Poinçonneur",
-    "location": "Luxemburgo, Luxemburgo",
-    "description": "Escultura en forma de columna con un rostro dorado incrustado.",
-    "visible": true
-  },
-  "107F175C-3289-427A-9419-28B5B621C727.JPEG": {
-    "title": "Bock Casemates",
-    "location": "Luxemburgo, Luxemburgo",
-    "description": "Una vista panorámica de las murallas históricas, la garganta del río Alzette y el puente ferroviario de Passerelle en Luxemburgo.",
-    "visible": true
-  },
-  "1537731A-62A4-4268-87B4-7A938970875A.JPEG": {
-    "title": "Catedral Basílica de la Inmaculada Concepción",
-    "location": "Mazatlán, México",
-    "description": "Interior de la catedral que muestra la arquitectura neogótica, las bóvedas de crucería, las columnas y las vidrieras del altar mayor.",
-    "visible": true
-  },
-  "1677EC77-E27F-4B7E-B3B4-3BBCEE03780C.JPEG": {
-    "title": "Portada y puertas de la Iglesia",
-    "location": "Luxemburgo, Luxemburgo",
-    "description": "Detalle de la entrada principal con puertas de madera y ornamentación clásica con escudo de armas.",
-    "visible": true
-  },
-  "1B767CBC-C0C8-4EEC-A865-1B2B78610274.JPEG": {
-    "title": "Catedral de Zagreb",
-    "location": "Zagreb, Croacia",
-    "description": "Vista interior del ábside con coloridos vitrales y el altar mayor de la catedral.",
-    "visible": true
-  },
-  "1C4B6D86-724B-45FC-A81E-8A0D507C2F25.JPEG": {
-    "title": "Neumünster Abbey",
-    "location": "Luxemburgo, Luxemburgo",
-    "description": "Una histórica abadía benedictina situada en el barrio de Grund, junto al río Alzette, conocida por su distintiva aguja de iglesia oscura.",
-    "visible": true
-  },
   "20250514_131642.mp4": {
-    "title": "",
-    "location": "",
+    "title": "Vista Interior",
+    "location": "Catedral de Notre-Dame de Luxemburgo",
     "description": "",
     "visible": true
   },
   "20250514_131825.mp4": {
-    "title": "",
-    "location": "",
+    "title": "Recorrido Interior",
+    "location": "Catedral de Nuestra Señora / Casco antiguo de Luxemburgo",
     "description": "",
     "visible": true
   },
@@ -65,10 +17,232 @@
     "description": "",
     "visible": true
   },
-  "23F72B72-8C19-4FF8-A660-1E28A452B5E9.JPEG": {
-    "title": "Caisse d'Épargne de l'État (BGL BNP Paribas)",
+  "896E7611-6737-409B-A24F-BB8EC3910504.JPEG": {
+    "title": "State Savings Bank (Spuerkess) Headquarters",
     "location": "Luxemburgo, Luxemburgo",
-    "description": "Edificio histórico con una torre cónica verde ubicado en la Place de Metz, en la ciudad de Luxemburgo.",
+    "description": "Sede histórica de la Caja de Ahorros del Estado (Spuerkess) en la ciudad de Luxemburgo, con su icónica torre de estilo neorrenacentista.",
+    "visible": true
+  },
+  "D6647835-38C5-48C1-9AB3-BC1546E1EC72.JPEG": {
+    "title": "Catedral de Nuestra Señora / Casco antiguo de Luxemburgo",
+    "location": "Luxemburgo, Luxemburgo",
+    "description": "Vista panorámica hacia las torres de la Catedral de Nuestra Señora (Cathédrale Notre-Dame) sobre la vegetación del parque de la ciudad.",
+    "visible": true
+  },
+  "B6652C13-4D46-4D93-A7F4-F6A2198634FE.JPEG": {
+    "title": "Cathédrale Notre-Dame",
+    "location": "Luxemburgo, Luxemburgo",
+    "description": "Catedral católica de estilo gótico y renacentista, sede de la Archidiócesis de Luxemburgo, famosa por sus característicos campanarios y su ubicación sobre las antiguas murallas de la ciudad.",
+    "visible": true
+  },
+  "A176AA48-2E91-466C-B76C-EF0D638BDDEC.JPEG": {
+    "title": "Gëlle Fra (Monumento del Recuerdo)",
+    "location": "Ciudad de Luxemburgo, Luxemburgo",
+    "description": "Monumento de guerra dedicado a los voluntarios luxemburgueses caídos en las guerras mundiales y en la guerra de Corea, coronado por una estatua dorada que representa a la Victoria.",
+    "visible": true
+  },
+  "DF7B34FE-01F2-48E3-B5EF-D01D0624DA2C.JPEG": {
+    "title": "Catedral de Notre-Dame",
+    "location": "Luxemburgo, Luxemburgo",
+    "description": "Catedral católica de estilo gótico ubicada en la ciudad de Luxemburgo.",
+    "visible": true
+  },
+  "81F2D2AE-70DC-4FCA-A8E7-BB5BF19142CD.JPEG": {
+    "title": "Catedral de Notre-Dame",
+    "location": "Luxemburgo, Luxemburgo",
+    "description": "Catedral católica de estilo gótico y renacentista ubicada en la Ciudad de Luxemburgo.",
+    "visible": true
+  },
+  "A69EFEFE-79B8-436B-83D3-1CDA2B6E9FEE.JPEG": {
+    "title": "Catedral de Notre-Dame",
+    "location": "Luxemburgo, Luxemburgo",
+    "description": "Fachada principal y entrada ornamentada de la Catedral de Notre-Dame en Luxemburgo.",
+    "visible": true
+  },
+  "C7F1F8CB-C168-449E-AD12-85C4D5BBB935.JPEG": {
+    "title": "Catedral de Notre-Dame",
+    "location": "Luxemburgo, Luxemburgo",
+    "description": "Fachada principal y entrada ornamentada de la Catedral de Notre-Dame en Luxemburgo.",
+    "visible": true
+  },
+  "5D8A8A47-813D-4D96-936D-CEE75C317E84.JPEG": {
+    "title": "Catedral de Nuestra Señora / Casco antiguo de Luxemburgo",
+    "location": "Luxemburgo, Luxemburgo",
+    "description": "Fachada principal y entrada ornamentada de la Catedral de Notre-Dame en Luxemburgo.",
+    "visible": true
+  },
+  "1537731A-62A4-4268-87B4-7A938970875A.JPEG": {
+    "title": "Bóvedas de Crucería",
+    "location": "Catedral de Notre-Dame de Luxemburgo",
+    "description": "Interior de la catedral que muestra la arquitectura neogótica, las bóvedas de crucería, las columnas y las vidrieras del altar mayor.",
+    "visible": true
+  },
+  "D3A8E9AD-7859-43F8-B6B8-1F27C6F0010C.JPEG": {
+    "title": "Altar Mayor",
+    "location": "Catedral de Notre-Dame de Luxemburgo",
+    "description": "Interior de una catedral gótica con arcos altos, vidrieras coloridas y un altar elaborado.",
+    "visible": true
+  },
+  "1B767CBC-C0C8-4EEC-A865-1B2B78610274.JPEG": {
+    "title": "Vitrales / Altar",
+    "location": "Catedral de Nuestra Señora / Casco antiguo de Luxemburgo",
+    "description": "Vista interior del ábside con coloridos vitrales y el altar mayor de la catedral.",
+    "visible": true
+  },
+  "CC6EEEAF-1694-470C-8ADE-0F042348E65D.JPEG": {
+    "title": "Vitrales / Altar",
+    "location": "Catedral de Nuestra Señora / Casco antiguo de Luxemburgo",
+    "description": "Interior de la catedral mostrando las coloridas vidrieras góticas y el altar mayor.",
+    "visible": true
+  },
+  "6C55132F-7D6E-4A0F-9A61-870148979888.JPEG": {
+    "title": "Vitrales / Altar",
+    "location": "Catedral de Nuestra Señora / Casco antiguo de Luxemburgo",
+    "description": "Interior de la catedral mostrando las coloridas vidrieras góticas y el altar mayor.",
+    "visible": true
+  },
+  "D4BEF378-C242-44F5-A9C0-F4DC8D477447.JPEG": {
+    "title": "Monumento a la Gran Duquesa Carlota",
+    "location": "Luxemburgo, Luxemburgo",
+    "description": "Monumento en honor a la Gran Duquesa Carlota de Luxemburgo, ubicado en la Plaza de la Constitución (Place de la Constitution) en la ciudad de Luxemburgo.",
+    "visible": true
+  },
+  "FB484DF1-7039-4B56-BC01-2E0F8D39E493.JPEG": {
+    "title": "Palacio Gran Ducal",
+    "location": "Luxemburgo, Luxemburgo",
+    "description": "Fachada principal del Palacio Gran Ducal, residencia oficial del Gran Duque de Luxemburgo, bajo un cielo azul despejado.",
+    "visible": true
+  },
+  "D4B3B099-81FE-46F7-B2F5-0FFFAED9C6AE.JPEG": {
+    "title": "Palacio Gran Ducal",
+    "location": "Luxemburgo, Luxemburgo",
+    "description": "Fachada principal del Palacio Gran Ducal, la residencia oficial del Gran Duque de Luxemburgo, caracterizada por su arquitectura renacentista flamenca y una torre central ondeando la bandera nacional.",
+    "visible": true
+  },
+  "CEFDE8BA-6322-4369-8802-EE193495E390.JPEG": {
+    "title": "Palacio Gran Ducal",
+    "location": "Luxemburgo, Luxemburgo",
+    "description": "El Palacio Gran Ducal es la residencia oficial del Gran Duque de Luxemburgo, situado en la ciudad de Luxemburgo.",
+    "visible": true
+  },
+  "97E0B205-541A-459C-B234-C3CA782CF05F.JPEG": {
+    "title": "Asta Bandera",
+    "location": "Palais grand-ducal, Luxemburgo",
+    "description": "Detalle de la azotea del Palacio Gran Ducal con la bandera de Luxemburgo ondeando en la parte superior.",
+    "visible": true
+  },
+  "049BA04B-EDF4-4394-9531-D6A836F256AB.JPEG": {
+    "title": "Monumento Le Poinçonneur",
+    "location": "Luxemburgo, Luxemburgo",
+    "description": "Escultura en forma de columna con un rostro dorado incrustado.",
+    "visible": true
+  },
+  "EC512E31-B10F-4975-93B8-950A940A63F8.JPEG": {
+    "title": "Rue Münster",
+    "location": "Luxemburgo, Luxemburgo",
+    "description": "Calle adoquinada y cuesta empinada en el barrio histórico de Grund, flanqueada por edificios tradicionales de tonos amarillos y con señalización de tráfico francesa.",
+    "visible": true
+  },
+  "EA019CE3-7143-46D5-B1CE-B1BF8EDDECA1.JPEG": {
+    "title": "Rue Munster",
+    "location": "Luxemburgo, Luxemburgo",
+    "description": "Una calle empinada en el barrio histórico de Grund en la ciudad de Luxemburgo.",
+    "visible": true
+  },
+  "31EAA9A9-DEEB-4188-957A-637D4AB9EC5D.JPEG": {
+    "title": "Église Saint-Michel",
+    "location": "Luxemburg, Luxemburg",
+    "description": "Portalada històrica d'estil barroc amb decoració heràldica i coronada, acompanyada d'un parell de columnes de pedra i portes de fusta tallada.",
+    "visible": true
+  },
+  "2BE5F815-1E19-4C01-99FA-4F2DC2F4FC9D.JPEG": {
+    "title": "Eglise Saint-Martin de Dudelange",
+    "location": "Dudelange, Luxemburgo",
+    "description": "Detalle del campanario y chapitel con veleta de gallo de una iglesia histórica.",
+    "visible": true
+  },
+  "DC9C2861-AD89-4E9A-9CAF-C73BAC765058.JPEG": {
+    "title": "Mecanismo del reloj histórico",
+    "location": "Catedral de Notre-Dame de Luxemburgo",
+    "description": "Antiguo mecanismo de relojería expuesto en el interior de la catedral.",
+    "visible": true
+  },
+  "B0C0F2D8-BA27-4E5E-A890-1605A8A96640.JPEG": {
+    "title": "Interior de la Iglesia",
+    "location": "Iglesia de San Miguel, Luxemburgo",
+    "description": "Interior gótico de una iglesia histórica con techos abovedados, un altar elaborado con una pintura central y bancos de madera para los feligreses.",
+    "visible": true
+  },
+  "406A244C-08C2-47A6-8243-BC8B909601AE.JPEG": {
+    "title": "Vitral Histórico",
+    "location": "Iglesia de San Miguel, Luxemburgo",
+    "description": "Vitral colorido ubicado en un arco de piedra dentro de un edificio religioso, depicting escenas históricas o religiosas.",
+    "visible": true
+  },
+  "66426ABB-1A76-460E-82D6-32CD889FADE8.JPEG": {
+    "title": "Vitral de la Iglesia",
+    "location": "Iglesia de San Miguel, Luxemburgo",
+    "description": "Vitral histórico que decora el interior de una iglesia, mostrando escenas religiosas y históricas en múltiples paneles de colores.",
+    "visible": true
+  },
+  "1677EC77-E27F-4B7E-B3B4-3BBCEE03780C.JPEG": {
+    "title": "Portada y puertas de la Iglesia",
+    "location": "Iglesia de San Miguel, Luxemburgo",
+    "description": "Detalle de la entrada principal con puertas de madera y ornamentación clásica con escudo de armas.",
+    "visible": true
+  },
+  "FD8B91BE-BB75-4B4C-BD84-C2AF2A8F46DE.JPEG": {
+    "title": "Puertas de la Iglesia",
+    "location": "Eglise Saint Michel Luxembourg",
+    "description": "La iglesia de San Miguel es la iglesia católica más antigua de la ciudad de Luxemburgo.",
+    "visible": true
+  },
+  "00806DF8-9E29-42F8-BD79-90CA7C5E7028.JPEG": {
+    "title": "Abadía de Neumünster",
+    "location": "Ciudad de Luxemburgo, Luxemburgo",
+    "description": "Una histórica abadía situada en el barrio de Grund, a los pies de las murallas de la ciudad de Luxemburgo, actualmente utilizada como centro cultural y de encuentros.",
+    "visible": true
+  },
+  "1C4B6D86-724B-45FC-A81E-8A0D507C2F25.JPEG": {
+    "title": "Neumünster Abbey",
+    "location": "Luxemburgo, Luxemburgo",
+    "description": "Una histórica abadía benedictina situada en el barrio de Grund, junto al río Alzette, conocida por su distintiva aguja de iglesia oscura.",
+    "visible": true
+  },
+  "5685B7D8-EA0B-4256-9726-6964791C8E4B.JPEG": {
+    "title": "Grund / Alzette River",
+    "location": "Luxemburgo, Luxemburgo",
+    "description": "Vista panorámica del histórico barrio de Grund en Luxemburgo, con el río Alzette y arquitectura tradicional europea.",
+    "visible": true
+  },
+  "D8A28F42-7C99-49AD-8D20-FEF74FAE37DB.JPEG": {
+    "title": "Abadía de Neumünster",
+    "location": "Luxemburgo, Luxemburgo",
+    "description": "Vista aérea de la Abadía de Neumünster ubicada en el histórico barrio de Grund en la ciudad de Luxemburgo.",
+    "visible": true
+  },
+  "D437EE87-615F-427D-80ED-C6F6AA8CE458.JPEG": {
+    "title": "Casemates du Bock",
+    "location": "Luxemburgo, Luxemburgo",
+    "description": "Fortificaciones históricas excavadas en la roca con vistas al valle de la Petrusse.",
+    "visible": true
+  },
+  "107F175C-3289-427A-9419-28B5B621C727.JPEG": {
+    "title": "Bock Casemates",
+    "location": "Luxemburgo, Luxemburgo",
+    "description": "Una vista panorámica de las murallas históricas, la garganta del río Alzette y el puente ferroviario de Passerelle en Luxemburgo.",
+    "visible": true
+  },
+  "97EAE277-BFAA-4C2D-935C-B2D330D34762.JPEG": {
+    "title": "Abadía de Neumünster",
+    "location": "Ciudad de Luxemburgo, Luxemburgo",
+    "description": "Antigua abadía benedictina situada en el histórico barrio de Grund, actualmente convertida en un centro cultural y de reuniones.",
+    "visible": true
+  },
+  "CE764BDB-A73A-4AB3-9976-C580B1843D4C.JPEG": {
+    "title": "Casemates du Bock",
+    "location": "Luxemburgo, Luxemburgo",
+    "description": "Fortificaciones históricas excavadas en la roca con vistas al río Alzette.",
     "visible": true
   },
   "27723E45-0757-4971-A3D5-70F5EEEADDCD.JPEG": {
@@ -83,16 +257,10 @@
     "description": "El Palacio Gran Ducal es la residencia oficial del Gran Duque de Luxemburgo, situado en la ciudad de Luxemburgo.",
     "visible": true
   },
-  "2BE5F815-1E19-4C01-99FA-4F2DC2F4FC9D.JPEG": {
-    "title": "Eglise Saint-Martin de Dudelange",
-    "location": "Dudelange, Luxemburgo",
-    "description": "Detalle del campanario y chapitel con veleta de gallo de una iglesia histórica.",
-    "visible": true
-  },
-  "31EAA9A9-DEEB-4188-957A-637D4AB9EC5D.JPEG": {
-    "title": "Porta de l'Església de Sant Miquel",
-    "location": "Ciutat de Luxemburg, Luxemburg",
-    "description": "Portalada històrica d'estil barroc amb decoració heràldica i coronada, acompanyada d'un parell de columnes de pedra i portes de fusta tallada.",
+  "5CC21C4D-F880-4E75-9CBD-689E12B71346.JPEG": {
+    "title": "Atracciones de feria en la Place d'Armes",
+    "location": "Luxemburgo, Luxemburgo",
+    "description": "Una feria callejera con un carrusel tradicional y un puesto de juegos temático de piratas.",
     "visible": true
   },
   "33D855DD-8C6A-4C62-8CF3-C3055D148322.JPEG": {
@@ -101,10 +269,10 @@
     "description": "Una plaza pública en el centro de la ciudad de Luxemburgo, decorada con un tiovivo clásico y árboles.",
     "visible": true
   },
-  "406A244C-08C2-47A6-8243-BC8B909601AE.JPEG": {
-    "title": "Vitral histórico de la Abadía de Saint-Germain-des-Prés",
-    "location": "París, Francia",
-    "description": "Vitral colorido ubicado en un arco de piedra dentro de un edificio religioso, depicting escenas históricas o religiosas.",
+  "F8B17354-5FB4-476F-A636-0678BEB7E0F0.JPEG": {
+    "title": "Stadthaus",
+    "location": "Luxemburgo, Luxemburgo",
+    "description": "Edificio histórico de piedra caliza con una torre y un reloj en la fachada, situado en una plaza soleada.",
     "visible": true
   },
   "5634C375-052E-4586-94E8-E04CA0823878.JPEG": {
@@ -113,46 +281,16 @@
     "description": "Vista panorámica desde la parte alta hacia el parque del valle de la Pétrusse, con la catedral de Notre-Dame y la torre mirador SkyFlyer al fondo.",
     "visible": true
   },
-  "5685B7D8-EA0B-4256-9726-6964791C8E4B.JPEG": {
-    "title": "Grund / Alzette River",
+  "A4AC852E-3EE9-4CBE-8E4F-8B50695E053F.JPEG": {
+    "title": "Pont Adolphe",
     "location": "Luxemburgo, Luxemburgo",
-    "description": "Vista panorámica del histórico barrio de Grund en Luxemburgo, con el río Alzette y arquitectura tradicional europea.",
+    "description": "Vista del Puente Adolfo en dirección al bulevar de la Pétrusse, con los edificios administrativos del estado al fondo.",
     "visible": true
   },
-  "5CC21C4D-F880-4E75-9CBD-689E12B71346.JPEG": {
-    "title": "Atracciones de feria en la Place d'Armes",
+  "0161356E-3303-464C-B65A-F4C1EE2CC5EB.JPEG": {
+    "title": "Avenue de la Liberté",
     "location": "Luxemburgo, Luxemburgo",
-    "description": "Una feria callejera con un carrusel tradicional y un puesto de juegos temático de piratas.",
-    "visible": true
-  },
-  "5D8A8A47-813D-4D96-936D-CEE75C317E84.JPEG": {
-    "title": "Catedral de San Miguel y Santa Gúdula",
-    "location": "Bruselas, Bélgica",
-    "description": "Fachada principal y entrada ornamental de estilo gótico brabanzón y renacentista de la catedral.",
-    "visible": true
-  },
-  "66426ABB-1A76-460E-82D6-32CD889FADE8.JPEG": {
-    "title": "Vitral de la Basílica de Saint-Denis",
-    "location": "Saint-Denis, Francia",
-    "description": "Vitral histórico que decora el interior de una iglesia, mostrando escenas religiosas y históricas en múltiples paneles de colores.",
-    "visible": true
-  },
-  "6C55132F-7D6E-4A0F-9A61-870148979888.JPEG": {
-    "title": "Catedral de San Esteban",
-    "location": "Viena, Austria",
-    "description": "Interior de la catedral mostrando las coloridas vidrieras góticas y el altar mayor.",
-    "visible": true
-  },
-  "7E1451D0-A7C8-4D08-BB84-B07AB3D617C7.JPEG": {
-    "title": "State Savings Bank (Spuerkeess)",
-    "location": "Luxemburgo, Luxemburgo",
-    "description": "Edificio histórico de la Caja de Ahorros del Estado (Spuerkeess) en la ciudad de Luxemburgo.",
-    "visible": true
-  },
-  "81F2D2AE-70DC-4FCA-A8E7-BB5BF19142CD.JPEG": {
-    "title": "Catedral de Notre-Dame",
-    "location": "Luxemburgo, Luxemburgo",
-    "description": "Catedral católica de estilo gótico y renacentista ubicada en la Ciudad de Luxemburgo.",
+    "description": "Una vista de la Avenida de la Libertad (Avenue de la Liberté) con vías de tranvía en la ciudad de Luxemburgo.",
     "visible": true
   },
   "896E6B7C-2D7F-48D8-897B-BE876D61B923.JPEG": {
@@ -161,166 +299,28 @@
     "description": "Una calle con vías de tranvía y un tranvía en movimiento.",
     "visible": true
   },
-  "896E7611-6737-409B-A24F-BB8EC3910504.JPEG": {
-    "title": "State Savings Bank (Spuerkess) Headquarters",
+  "23F72B72-8C19-4FF8-A660-1E28A452B5E9.JPEG": {
+    "title": "Caisse d'Épargne de l'État (BGL BNP Paribas)",
     "location": "Luxemburgo, Luxemburgo",
-    "description": "Sede histórica de la Caja de Ahorros del Estado (Spuerkess) en la ciudad de Luxemburgo, con su icónica torre de estilo neorrenacentista.",
-    "visible": true
-  },
-  "97E0B205-541A-459C-B234-C3CA782CF05F.JPEG": {
-    "title": "Palais grand-ducal",
-    "location": "Luxemburgo, Luxemburgo",
-    "description": "Detalle de la azotea del Palacio Gran Ducal con la bandera de Luxemburgo ondeando en la parte superior.",
-    "visible": true
-  },
-  "97EAE277-BFAA-4C2D-935C-B2D330D34762.JPEG": {
-    "title": "Abadía de Neumünster",
-    "location": "Ciudad de Luxemburgo, Luxemburgo",
-    "description": "Antigua abadía benedictina situada en el histórico barrio de Grund, actualmente convertida en un centro cultural y de reuniones.",
-    "visible": true
-  },
-  "A176AA48-2E91-466C-B76C-EF0D638BDDEC.JPEG": {
-    "title": "Gëlle Fra (Monumento del Recuerdo)",
-    "location": "Ciudad de Luxemburgo, Luxemburgo",
-    "description": "Monumento de guerra dedicado a los voluntarios luxemburgueses caídos en las guerras mundiales y en la guerra de Corea, coronado por una estatua dorada que representa a la Victoria.",
-    "visible": true
-  },
-  "A4AC852E-3EE9-4CBE-8E4F-8B50695E053F.JPEG": {
-    "title": "Pont Adolphe",
-    "location": "Luxemburgo, Luxemburgo",
-    "description": "Vista del Puente Adolfo en dirección al bulevar de la Pétrusse, con los edificios administrativos del estado al fondo.",
-    "visible": true
-  },
-  "A69EFEFE-79B8-436B-83D3-1CDA2B6E9FEE.JPEG": {
-    "title": "Catedral de San Esteban",
-    "location": "Viena, Austria",
-    "description": "Fachada y entrada principal de la Catedral de San Esteban (Stephansdom), mostrando los detalles arquitectónicos góticos, esculturas y el portal.",
-    "visible": true
-  },
-  "B0C0F2D8-BA27-4E5E-A890-1605A8A96640.JPEG": {
-    "title": "Interior de la Iglesia de San Jorge",
-    "location": "Bratislava, Eslovaquia",
-    "description": "Interior gótico de una iglesia histórica con techos abovedados, un altar elaborado con una pintura central y bancos de madera para los feligreses.",
-    "visible": true
-  },
-  "B6652C13-4D46-4D93-A7F4-F6A2198634FE.JPEG": {
-    "title": "Cathédrale Notre-Dame",
-    "location": "Luxemburgo, Luxemburgo",
-    "description": "Catedral católica de estilo gótico y renacentista, sede de la Archidiócesis de Luxemburgo, famosa por sus característicos campanarios y su ubicación sobre las antiguas murallas de la ciudad.",
-    "visible": true
-  },
-  "C7F1F8CB-C168-449E-AD12-85C4D5BBB935.JPEG": {
-    "title": "Catedral de Notre-Dame",
-    "location": "Luxemburgo, Luxemburgo",
-    "description": "Fachada principal y entrada ornamentada de la Catedral de Notre-Dame en Luxemburgo.",
-    "visible": true
-  },
-  "CC6EEEAF-1694-470C-8ADE-0F042348E65D.JPEG": {
-    "title": "",
-    "location": "",
-    "description": "",
-    "visible": true
-  },
-  "CE764BDB-A73A-4AB3-9976-C580B1843D4C.JPEG": {
-    "title": "Casemates du Bock",
-    "location": "Luxemburgo, Luxemburgo",
-    "description": "Fortificaciones históricas excavadas en la roca con vistas al río Alzette.",
-    "visible": true
-  },
-  "CEFDE8BA-6322-4369-8802-EE193495E390.JPEG": {
-    "title": "Palacio Gran Ducal",
-    "location": "Luxemburgo, Luxemburgo",
-    "description": "El Palacio Gran Ducal es la residencia oficial del Gran Duque de Luxemburgo, situado en la ciudad de Luxemburgo.",
-    "visible": true
-  },
-  "D3A8E9AD-7859-43F8-B6B8-1F27C6F0010C.JPEG": {
-    "title": "Catedral de San Esteban",
-    "location": "Viena, Austria",
-    "description": "Interior de una catedral gótica con arcos altos, vidrieras coloridas y un altar elaborado.",
-    "visible": true
-  },
-  "D437EE87-615F-427D-80ED-C6F6AA8CE458.JPEG": {
-    "title": "Casemates du Bock",
-    "location": "Luxemburgo, Luxemburgo",
-    "description": "Fortificaciones históricas excavadas en la roca con vistas al valle de la Petrusse.",
-    "visible": true
-  },
-  "D4B3B099-81FE-46F7-B2F5-0FFFAED9C6AE.JPEG": {
-    "title": "Palacio Gran Ducal",
-    "location": "Luxemburgo, Luxemburgo",
-    "description": "Fachada principal del Palacio Gran Ducal, la residencia oficial del Gran Duque de Luxemburgo, caracterizada por su arquitectura renacentista flamenca y una torre central ondeando la bandera nacional.",
-    "visible": true
-  },
-  "D4BEF378-C242-44F5-A9C0-F4DC8D477447.JPEG": {
-    "title": "Monumento a la Gran Duquesa Carlota",
-    "location": "Luxemburgo, Luxemburgo",
-    "description": "Monumento en honor a la Gran Duquesa Carlota de Luxemburgo, ubicado en la Plaza de la Constitución (Place de la Constitution) en la ciudad de Luxemburgo.",
-    "visible": true
-  },
-  "D6647835-38C5-48C1-9AB3-BC1546E1EC72.JPEG": {
-    "title": "Catedral de Nuestra Señora / Casco antiguo de Luxemburgo",
-    "location": "Luxemburgo, Luxemburgo",
-    "description": "Vista panorámica hacia las torres de la Catedral de Nuestra Señora (Cathédrale Notre-Dame) sobre la vegetación del parque de la ciudad.",
-    "visible": true
-  },
-  "D8A28F42-7C99-49AD-8D20-FEF74FAE37DB.JPEG": {
-    "title": "Abadía de Neumünster",
-    "location": "Luxemburgo, Luxemburgo",
-    "description": "Vista aérea de la Abadía de Neumünster ubicada en el histórico barrio de Grund en la ciudad de Luxemburgo.",
+    "description": "Edificio histórico con una torre cónica verde ubicado en la Place de Metz, en la ciudad de Luxemburgo.",
     "visible": true
   },
   "DC984DCA-670C-458F-9E0D-0C11B559C313.JPEG": {
-    "title": "",
-    "location": "",
-    "description": "",
+    "title": "State Savings Bank (Spuerkeess)",
+    "location": "Luxemburgo, Luxemburgo",
+    "description": "Edificio histórico de la Caja de Ahorros del Estado (Spuerkeess) en la ciudad de Luxemburgo.",
     "visible": true
   },
-  "DC9C2861-AD89-4E9A-9CAF-C73BAC765058.JPEG": {
-    "title": "Mecanismo del reloj histórico de la Catedral de Notre-Dame de Luxemburgo",
+  "7E1451D0-A7C8-4D08-BB84-B07AB3D617C7.JPEG": {
+    "title": "State Savings Bank (Spuerkeess)",
     "location": "Luxemburgo, Luxemburgo",
-    "description": "Antiguo mecanismo de relojería expuesto en el interior de la catedral.",
-    "visible": true
-  },
-  "DF7B34FE-01F2-48E3-B5EF-D01D0624DA2C.JPEG": {
-    "title": "Catedral de Notre-Dame",
-    "location": "Luxemburgo, Luxemburgo",
-    "description": "Catedral católica de estilo gótico ubicada en la ciudad de Luxemburgo.",
-    "visible": true
-  },
-  "EA019CE3-7143-46D5-B1CE-B1BF8EDDECA1.JPEG": {
-    "title": "Rue Munster",
-    "location": "Luxemburgo, Luxemburgo",
-    "description": "Una calle empinada en el barrio histórico de Grund en la ciudad de Luxemburgo.",
-    "visible": true
-  },
-  "EC512E31-B10F-4975-93B8-950A940A63F8.JPEG": {
-    "title": "Rue Münster",
-    "location": "Luxemburgo, Luxemburgo",
-    "description": "Calle adoquinada y cuesta empinada en el barrio histórico de Grund, flanqueada por edificios tradicionales de tonos amarillos y con señalización de tráfico francesa.",
+    "description": "Edificio histórico de la Caja de Ahorros del Estado (Spuerkeess) en la ciudad de Luxemburgo.",
     "visible": true
   },
   "EC55A500-5FAF-40AB-819A-61B610886F57.JPEG": {
     "title": "Banque et Caisse d'Épargne de l'État (Spuerkeess)",
     "location": "Luxemburgo, Luxemburgo",
     "description": "Edificio histórico y sede principal de la caja de ahorros estatal de Luxemburgo, ubicado en la Plaza de Metz.",
-    "visible": true
-  },
-  "F8B17354-5FB4-476F-A636-0678BEB7E0F0.JPEG": {
-    "title": "Stadthaus",
-    "location": "Luxemburgo, Luxemburgo",
-    "description": "Edificio histórico de piedra caliza con una torre y un reloj en la fachada, situado en una plaza soleada.",
-    "visible": true
-  },
-  "FB484DF1-7039-4B56-BC01-2E0F8D39E493.JPEG": {
-    "title": "Palacio Gran Ducal",
-    "location": "Luxemburgo, Luxemburgo",
-    "description": "Fachada principal del Palacio Gran Ducal, residencia oficial del Gran Duque de Luxemburgo, bajo un cielo azul despejado.",
-    "visible": true
-  },
-  "FD8B91BE-BB75-4B4C-BD84-C2AF2A8F46DE.JPEG": {
-    "title": "Église Saint-Michel",
-    "location": "Luxemburgo, Luxemburgo",
-    "description": "La iglesia de San Miguel es la iglesia católica más antigua de la ciudad de Luxemburgo.",
     "visible": true
   }
 }
