@@ -1,197 +1,147 @@
-﻿{
-    "id":  "frankfurt-2025",
-    "generated":  "2026-08-16 13:49:20",
-    "total":  38,
-    "items":  [
-                  {
-                      "type":  "photo",
-                      "file":  "cover.png",
-                      "date":  "1900:01:01 00:00:00"
-                  },
-                  {
-                      "type":  "video",
-                      "file":  "20250514_211756.mp4",
-                      "date":  "2025:05:14 19:18:18"
-                  },
-                  {
-                      "type":  "video",
-                      "file":  "20250514_212746.mp4",
-                      "date":  "2025:05:14 19:27:59"
-                  },
-                  {
-                      "type":  "photo",
-                      "file":  "A58744C7-A19E-4D02-B930-29DACC804D81.JPEG",
-                      "date":  "2025:05:14 20:41:07"
-                  },
-                  {
-                      "type":  "photo",
-                      "file":  "EF78FD7C-B63D-41E4-A18F-98B3D697F5F1.JPEG",
-                      "date":  "2025:05:14 20:42:08"
-                  },
-                  {
-                      "type":  "photo",
-                      "file":  "6500A55B-A1CA-4DF2-AC4F-07963DC5D7EA.JPEG",
-                      "date":  "2025:05:14 20:42:14"
-                  },
-                  {
-                      "type":  "photo",
-                      "file":  "219D8FEB-7B94-4B96-83D7-58C0D90C1217.JPEG",
-                      "date":  "2025:05:14 20:43:09"
-                  },
-                  {
-                      "type":  "photo",
-                      "file":  "B1C8E5F6-D487-4665-8ADB-9D2475BCDD95.JPEG",
-                      "date":  "2025:05:14 20:43:31"
-                  },
-                  {
-                      "type":  "photo",
-                      "file":  "90B74474-5B76-480E-8C37-28BD7551A703.JPEG",
-                      "date":  "2025:05:14 20:43:38"
-                  },
-                  {
-                      "type":  "photo",
-                      "file":  "7C7D2101-8143-4EE6-BE19-15644147C442.JPEG",
-                      "date":  "2025:05:14 20:46:00"
-                  },
-                  {
-                      "type":  "photo",
-                      "file":  "F1C7220C-C9A0-4A43-9DE0-42CA2ECF9F3E.JPEG",
-                      "date":  "2025:05:14 20:56:29"
-                  },
-                  {
-                      "type":  "photo",
-                      "file":  "0512D351-7346-4D5E-99D4-0C9F7FEAFC41.JPEG",
-                      "date":  "2025:05:14 20:56:31"
-                  },
-                  {
-                      "type":  "photo",
-                      "file":  "C393786A-FC65-476F-AE36-A35BDCC1C7DC.JPEG",
-                      "date":  "2025:05:14 20:56:38"
-                  },
-                  {
-                      "type":  "photo",
-                      "file":  "8B9DB0A2-826E-48E0-B5A9-FE1F36C223EF.JPEG",
-                      "date":  "2025:05:14 21:09:21"
-                  },
-                  {
-                      "type":  "photo",
-                      "file":  "944E8FC1-57A0-4083-A377-B1D9B8036ED5.JPEG",
-                      "date":  "2025:05:14 21:09:33"
-                  },
-                  {
-                      "type":  "photo",
-                      "file":  "4C20E3C8-4916-4AD6-BF6D-D68A8C354C6F.JPEG",
-                      "date":  "2025:05:14 21:09:36"
-                  },
-                  {
-                      "type":  "photo",
-                      "file":  "2B7B614E-68F2-461E-996E-C2874B7D04E4.JPEG",
-                      "date":  "2025:05:14 21:09:41"
-                  },
-                  {
-                      "type":  "photo",
-                      "file":  "1ACCD732-127F-40D2-A527-6FED8885D1F0.JPEG",
-                      "date":  "2025:05:14 21:09:41"
-                  },
-                  {
-                      "type":  "photo",
-                      "file":  "2B5D0D7F-5263-431B-884B-BCFB414627FA.JPEG",
-                      "date":  "2025:05:14 21:09:41"
-                  },
-                  {
-                      "type":  "photo",
-                      "file":  "7D1383DA-883B-494C-8CB5-131C295D157D.JPEG",
-                      "date":  "2025:05:14 21:09:51"
-                  },
-                  {
-                      "type":  "photo",
-                      "file":  "08ADA4C5-754F-4477-A55D-601562A5ECEF.JPEG",
-                      "date":  "2025:05:14 21:11:21"
-                  },
-                  {
-                      "type":  "photo",
-                      "file":  "54A7C532-F067-4710-BB5A-A3A435A50E27.JPEG",
-                      "date":  "2025:05:14 21:11:25"
-                  },
-                  {
-                      "type":  "photo",
-                      "file":  "4D9A686D-FB3D-4BFE-9E20-FF243156AC6E.JPEG",
-                      "date":  "2025:05:14 21:13:26"
-                  },
-                  {
-                      "type":  "photo",
-                      "file":  "D0950BD7-2126-46B1-B0FE-90590A2B62A3.JPEG",
-                      "date":  "2025:05:14 21:15:57"
-                  },
-                  {
-                      "type":  "photo",
-                      "file":  "687260CC-91C8-45D2-A390-20B04DE69863.JPEG",
-                      "date":  "2025:05:14 21:19:24"
-                  },
-                  {
-                      "type":  "photo",
-                      "file":  "58F911BD-D862-4D7F-9100-6DA2C3DF0577.JPEG",
-                      "date":  "2025:05:14 21:19:36"
-                  },
-                  {
-                      "type":  "photo",
-                      "file":  "73A4F0DA-41BD-459A-9CD7-0665308EDD2F.JPEG",
-                      "date":  "2025:05:14 21:19:37"
-                  },
-                  {
-                      "type":  "photo",
-                      "file":  "3149D7EA-FEAB-4D24-B7DE-9D2624228325.JPEG",
-                      "date":  "2025:05:14 21:25:26"
-                  },
-                  {
-                      "type":  "photo",
-                      "file":  "F58FE190-22BD-4B76-B4E9-22547F46E7FD.JPEG",
-                      "date":  "2025:05:14 21:25:27"
-                  },
-                  {
-                      "type":  "photo",
-                      "file":  "DADD3F4B-B86A-454A-89A1-E47EE762A959.JPEG",
-                      "date":  "2025:05:14 21:28:48"
-                  },
-                  {
-                      "type":  "photo",
-                      "file":  "8657ABB5-A896-431E-B8E0-14C6165BF2FA.JPEG",
-                      "date":  "2025:05:14 21:29:02"
-                  },
-                  {
-                      "type":  "photo",
-                      "file":  "19E77A44-69CD-4D52-B31A-5684B49DB107.JPEG",
-                      "date":  "2025:05:14 21:37:56"
-                  },
-                  {
-                      "type":  "photo",
-                      "file":  "BE2CDC56-9AD6-4644-B039-B0F1DDB49FFD.JPEG",
-                      "date":  "2025:05:14 21:37:59"
-                  },
-                  {
-                      "type":  "photo",
-                      "file":  "679364CB-AF3A-4A3D-9275-1203E10AD58C.JPEG",
-                      "date":  "2025:05:14 21:38:04"
-                  },
-                  {
-                      "type":  "photo",
-                      "file":  "926A65DA-6CA6-41B4-9A74-B582AE0BC456.JPEG",
-                      "date":  "2025:05:14 21:40:17"
-                  },
-                  {
-                      "type":  "photo",
-                      "file":  "D4DFB4EB-B865-448F-83E5-EB17D25F1030.JPEG",
-                      "date":  "2025:05:14 21:40:20"
-                  },
-                  {
-                      "type":  "photo",
-                      "file":  "72499124-AF8F-4245-8928-7CC5E3C73D59.JPEG",
-                      "date":  "2025:05:14 21:40:25"
-                  },
-                  {
-                      "type":  "photo",
-                      "file":  "DE3CE40D-FA49-4D03-90EB-E890C4AAB5B1.JPEG",
-                      "date":  "2025:05:14 21:40:39"
-                  }
-              ]
+{
+  "id": "frankfurt-2025",
+  "generated": "2026-08-16 13:49:20",
+  "total": 28,
+  "items": [
+    {
+      "type": "photo",
+      "file": "cover.png",
+      "date": "1900:01:01 00:00:00"
+    },
+    {
+      "type": "photo",
+      "file": "A58744C7-A19E-4D02-B930-29DACC804D81.JPEG",
+      "date": "2025:05:14 20:41:07"
+    },
+    {
+      "type": "photo",
+      "file": "EF78FD7C-B63D-41E4-A18F-98B3D697F5F1.JPEG",
+      "date": "2025:05:14 20:42:08"
+    },
+    {
+      "type": "photo",
+      "file": "6500A55B-A1CA-4DF2-AC4F-07963DC5D7EA.JPEG",
+      "date": "2025:05:14 20:42:14"
+    },
+    {
+      "type": "photo",
+      "file": "B1C8E5F6-D487-4665-8ADB-9D2475BCDD95.JPEG",
+      "date": "2025:05:14 20:43:31"
+    },
+    {
+      "type": "photo",
+      "file": "90B74474-5B76-480E-8C37-28BD7551A703.JPEG",
+      "date": "2025:05:14 20:43:38"
+    },
+    {
+      "type": "photo",
+      "file": "7C7D2101-8143-4EE6-BE19-15644147C442.JPEG",
+      "date": "2025:05:14 20:46:00"
+    },
+    {
+      "type": "photo",
+      "file": "F1C7220C-C9A0-4A43-9DE0-42CA2ECF9F3E.JPEG",
+      "date": "2025:05:14 20:56:29"
+    },
+    {
+      "type": "photo",
+      "file": "C393786A-FC65-476F-AE36-A35BDCC1C7DC.JPEG",
+      "date": "2025:05:14 20:56:38"
+    },
+    {
+      "type": "photo",
+      "file": "8B9DB0A2-826E-48E0-B5A9-FE1F36C223EF.JPEG",
+      "date": "2025:05:14 21:09:21"
+    },
+    {
+      "type": "photo",
+      "file": "4C20E3C8-4916-4AD6-BF6D-D68A8C354C6F.JPEG",
+      "date": "2025:05:14 21:09:36"
+    },
+    {
+      "type": "photo",
+      "file": "2B7B614E-68F2-461E-996E-C2874B7D04E4.JPEG",
+      "date": "2025:05:14 21:09:41"
+    },
+    {
+      "type": "photo",
+      "file": "7D1383DA-883B-494C-8CB5-131C295D157D.JPEG",
+      "date": "2025:05:14 21:09:51"
+    },
+    {
+      "type": "video",
+      "file": "20250514_211756.mp4",
+      "date": "2025:05:14 19:18:18"
+    },
+    {
+      "type": "photo",
+      "file": "08ADA4C5-754F-4477-A55D-601562A5ECEF.JPEG",
+      "date": "2025:05:14 21:11:21"
+    },
+    {
+      "type": "photo",
+      "file": "4D9A686D-FB3D-4BFE-9E20-FF243156AC6E.JPEG",
+      "date": "2025:05:14 21:13:26"
+    },
+    {
+      "type": "photo",
+      "file": "D0950BD7-2126-46B1-B0FE-90590A2B62A3.JPEG",
+      "date": "2025:05:14 21:15:57"
+    },
+    {
+      "type": "photo",
+      "file": "687260CC-91C8-45D2-A390-20B04DE69863.JPEG",
+      "date": "2025:05:14 21:19:24"
+    },
+    {
+      "type": "video",
+      "file": "20250514_212746.mp4",
+      "date": "2025:05:14 19:27:59"
+    },
+    {
+      "type": "photo",
+      "file": "73A4F0DA-41BD-459A-9CD7-0665308EDD2F.JPEG",
+      "date": "2025:05:14 21:19:37"
+    },
+    {
+      "type": "photo",
+      "file": "F58FE190-22BD-4B76-B4E9-22547F46E7FD.JPEG",
+      "date": "2025:05:14 21:25:27"
+    },
+    {
+      "type": "photo",
+      "file": "DADD3F4B-B86A-454A-89A1-E47EE762A959.JPEG",
+      "date": "2025:05:14 21:28:48"
+    },
+    {
+      "type": "photo",
+      "file": "8657ABB5-A896-431E-B8E0-14C6165BF2FA.JPEG",
+      "date": "2025:05:14 21:29:02"
+    },
+    {
+      "type": "photo",
+      "file": "BE2CDC56-9AD6-4644-B039-B0F1DDB49FFD.JPEG",
+      "date": "2025:05:14 21:37:59"
+    },
+    {
+      "type": "photo",
+      "file": "679364CB-AF3A-4A3D-9275-1203E10AD58C.JPEG",
+      "date": "2025:05:14 21:38:04"
+    },
+    {
+      "type": "photo",
+      "file": "926A65DA-6CA6-41B4-9A74-B582AE0BC456.JPEG",
+      "date": "2025:05:14 21:40:17"
+    },
+    {
+      "type": "photo",
+      "file": "D4DFB4EB-B865-448F-83E5-EB17D25F1030.JPEG",
+      "date": "2025:05:14 21:40:20"
+    },
+    {
+      "type": "photo",
+      "file": "DE3CE40D-FA49-4D03-90EB-E890C4AAB5B1.JPEG",
+      "date": "2025:05:14 21:40:39"
+    }
+  ]
 }
