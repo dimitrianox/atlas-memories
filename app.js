@@ -2,14 +2,25 @@
 
 /* Atlas Memories: CSS owns sizing and centering; this file owns behavior. */
 (() => {
-  const config = { defaultAlbum: "londres-2025", swipeThreshold: 72, preloadDistance: 1 };
-  const state = { albumId: "", pages: [], current: 0, primaryVisible: true, renderToken: 0, startX: 0, startY: 0, deltaX: 0, dragging: false, horizontal: false };
+  const config = { defaultAlbum: "londres-2025", swipeThreshold: 72, preloadDistance: 1, useWebGL: true };
+  const state = { albumId: "", pages: [], current: 0, primaryVisible: true, renderToken: 0, startX: 0, startY: 0, deltaX: 0, dragging: false, horizontal: false, webgl: null, textures: [], loaded: false };
   const ui = {};
 
   document.addEventListener("DOMContentLoaded", init);
 
   async function init() {
     captureUi();
+    
+    // Initialize WebGL transition if enabled
+    if (config.useWebGL && typeof THREE !== 'undefined') {
+      try {
+        initWebGL();
+      } catch (e) {
+        console.warn("WebGL no disponible, usando transiciones CSS:", e);
+        config.useWebGL = false;
+      }
+    }
+    
     bindEvents();
     try {
       await loadAlbum();
@@ -22,6 +33,44 @@
       ui.date.textContent = "";
     } finally {
       document.body.classList.add("ready");
+    }
+  }
+
+  function initWebGL() {
+    state.webgl = new WebGLTransition();
+    const canvas = state.webgl.getCanvas();
+    canvas.id = "webgl-canvas";
+    canvas.style.cssText = "position:fixed;inset:0;width:100%;height:100%;z-index:1;";
+    ui.media.appendChild(canvas);
+    
+    // Preload textures
+    loadTextures();
+  }
+
+  async function loadTextures() {
+    const promises = state.pages.map((page, i) => {
+      return new Promise((resolve) => {
+        const img = new Image();
+        img.crossOrigin = "anonymous";
+        img.onload = () => {
+          const texture = new THREE.Texture(img);
+          texture.needsUpdate = true;
+          texture.minFilter = THREE.LinearFilter;
+          texture.magFilter = THREE.LinearFilter;
+          state.textures[i] = texture;
+          resolve();
+        };
+        img.onerror = () => resolve();
+        img.src = mediaUrl(page);
+      });
+    });
+    await Promise.all(promises);
+    state.loaded = true;
+    
+    // Set initial texture
+    if (state.textures[0]) {
+      state.webgl.setTexture1(state.textures[0]);
+      state.webgl.render();
     }
   }
 
@@ -66,12 +115,31 @@
     state.current = index;
     updateOverlay(page);
     resetOffset();
-    if (page.type === "photo") await renderPhoto(page, token, immediate);
-    else await renderVideo(page, token);
+    
+    // Use WebGL for photos if available
+    if (state.webgl && page.type === "photo" && state.textures[index] && !immediate) {
+      const prevIndex = state.current;
+      state.webgl.setTexture2(state.textures[index]);
+      state.webgl.transition(() => {
+        state.webgl.setTexture1(state.textures[index]);
+      });
+    } else if (page.type === "photo") {
+      await renderPhoto(page, token, immediate);
+    } else {
+      await renderVideo(page, token);
+    }
+    
     if (token === state.renderToken) preloadAround(index);
   }
 
   async function renderPhoto(page, token, immediate) {
+    // Skip if using WebGL (already handled in render())
+    if (state.webgl) {
+      const canvas = document.getElementById("webgl-canvas");
+      if (canvas) canvas.style.display = "block";
+      return;
+    }
+    
     stopVideo();
     const visible = state.primaryVisible ? ui.primary : ui.secondary;
     const next = state.primaryVisible ? ui.secondary : ui.primary;
@@ -104,6 +172,11 @@
   }
 
   async function renderVideo(page, token) {
+    // Hide WebGL canvas when showing video
+    if (state.webgl) {
+      const canvas = document.getElementById("webgl-canvas");
+      if (canvas) canvas.style.display = "none";
+    }
     ui.primary.style.display = "none";
     ui.secondary.style.display = "none";
     ui.video.style.translate = "0 0";
